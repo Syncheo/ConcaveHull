@@ -30,7 +30,7 @@ Let's see step by step what happens when you call `hull()` function:
     </li>
     <li>
         <div>Builds convex hull:</div>
-        <div><img src="https://raw.githubusercontent.com/SanyM/ConcaveHull/tree/master/readme-imgs/1.png" /></div>
+        <div><img src="https://raw.githubusercontent.com/SanyM/ConcaveHull/master/readme-imgs/1.png" /></div>
     </li>
     <li>
         <div>After that, the edges flex inward (according to the `concavity` param). For example:</div>
