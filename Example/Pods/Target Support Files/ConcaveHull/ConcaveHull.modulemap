@@ -1,0 +1,6 @@
+framework module ConcaveHull {
+  umbrella header "ConcaveHull-umbrella.h"
+
+  export *
+  module * { export * }
+}
