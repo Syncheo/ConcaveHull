@@ -1,9 +1,9 @@
 # ConcaveHull - A Swift Library that builds concave hull by set of points 
 
 [![CI Status](http://img.shields.io/travis/SanyM/ConcaveHull.svg?style=flat)](https://travis-ci.org/SanyM/ConcaveHull)
-[![Version](https://img.shields.io/cocoapods/v/ConvexHull.svg?style=flat)](http://cocoapods.org/pods/ConcaveHull)
-[![License](https://img.shields.io/cocoapods/l/ConvexHull.svg?style=flat)](http://cocoapods.org/pods/ConcaveHull)
-[![Platform](https://img.shields.io/cocoapods/p/ConvexHull.svg?style=flat)](http://cocoapods.org/pods/ConcaveHull)
+[![Version](https://img.shields.io/cocoapods/v/ConcaveHull.svg?style=flat)](http://cocoapods.org/pods/ConcaveHull)
+[![License](https://img.shields.io/cocoapods/l/ConcaveHull.svg?style=flat)](http://cocoapods.org/pods/ConcaveHull)
+[![Platform](https://img.shields.io/cocoapods/p/ConcaveHull.svg?style=flat)](http://cocoapods.org/pods/ConcaveHull)
 
 ## Usage
 
