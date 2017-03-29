@@ -45,7 +45,7 @@ class Format {
         if format == nil {
             return pointSet
         } else {
-            if pointSet is[[Int]] {
+            if pointSet is [[Int]] {
                 return (pointSet as? [[Int]])!.map {
                     (pt: [Int]) -> [String: Int] in
                     var o: [String: Int] = [String: Int]()

@@ -173,7 +173,7 @@ public class Hull {
         return points
     }
 
-    func concaveFunc(_ convex: inout [[Double]], _ maxSqEdgeLen: Double, _ maxSearchArea: [Double], _ grid: Grid, _ edgeSkipList: inout [String: Bool]) -> [[Double]] {
+    func concaveFunc( _ convex: inout [[Double]], _ maxSqEdgeLen: Double, _ maxSearchArea: [Double], _ grid: Grid, _ edgeSkipList: inout [String: Bool]) -> [[Double]] {
 
         var edge: [[Double]]
         var keyInSkipList: String = ""
