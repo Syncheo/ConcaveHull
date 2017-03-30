@@ -11,6 +11,9 @@
 
 import Foundation
 
+/**
+ Only public class of this pod, Use it to call the hull function Hull().hull(_, _, _)
+ */
 public class Hull {
     public let MaxConcaveAngleCos = cos(90 / (180 / Double.pi)) // angle = 90 deg
     public let MaxSearchBboxSizePercent = 0.6
@@ -18,6 +21,14 @@ public class Hull {
     public init() {
     }
 
+    /**
+     This main function allows to create the hull of a set of point by defining the desired concavity of the return hull.
+     
+     - parameter pointSet: The list of point, can be of type [Int], [Double], [[String: Double]] or [[String: Int]]
+     - parameter concavity: The concavity from > 0 to Infinity (Infinity being a convexe Hull
+     - parameter format: The name of String in [[String: Double]] or [[String: Int]] in an array, nil of pointSet is [Int] or [Double]
+     - returns: An array of point in the same format as poinSet, that is the hull of the pointSet
+     */
     public func hull(_ pointSet: [Any], _ concavity: Double?, _ format: [String]?) -> [Any] {
         var convex: [[Double]]
         var concave: [[Double]]
