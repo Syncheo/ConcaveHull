@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ConcaveHull'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'A Swift Library that builds concave or convexe hull by set of points'
 
 # This description is used to generate tags and improve search results.
