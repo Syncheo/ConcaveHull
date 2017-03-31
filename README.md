@@ -53,6 +53,30 @@ it, simply add the following line to your Podfile:
 pod "ConcaveHull"
 ```
 
-## Author
+## CHANGELOG
 
-Sany Maamari
+### 1.0.0
+Add new function to create a polygon from the created hull and to check if a point is in the polygon
+
+public func getPolygonWithHull() -> MKPolygon {
+public func getPolygonWithHull(latFormat: String, lngFormat: String) -> MKPolygon {
+
+These functions create a polygon from the hull extracted from the hull function
+
+public func getPolygon(coords: [CLLocationCoordinate2D]) -> MKPolygon {
+public func getPolygon(points: [MKMapPoint]) -> MKPolygon {
+
+These functions create a polygon from a specific array of coordinates
+
+public func coordInPolygon(coord: CLLocationCoordinate2D) -> Bool {
+public func pointInPolygon(mapPoint: MKMapPoint) -> Bool {
+
+These functions check if a coordinate or point is in a polygon
+
+### 0.1.1
+First version with correct metadata
+
+### 0.1.0
+Initial Version
+
+

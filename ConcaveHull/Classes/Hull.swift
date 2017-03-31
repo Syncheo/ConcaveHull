@@ -90,36 +90,6 @@ public class Hull {
     }
     
     /**
-     Create and set in the class a polygon from the hull extracted from the hull function with a specified format, in order for this function to work, you should specify, which value of the format is the lat value and which value is the lng value.
-     If you don't have a format variable of type [String], meaning, your using a pointSet of type [[Int]] or [[Double]], you should the getPolygonWithHull without arguments
-     - parameter latFormat: the value of the format array to represent the latitude
-     - parameter lngFormat: the value of the format array to represent the longitude
-     - returns: An MKPolygon for direct reuse and set it in the class for future use
-     */
-    public func getPolygonWithHull(latFormat: String, lngFormat: String) -> MKPolygon {
-        if format == nil {
-            return getPolygonWithHull()
-        }
-        
-        if hull is [[String: Int]] {
-            let coords: [CLLocationCoordinate2D] = (hull as? [[String: Int]])!.map {
-                (pt: [String: Int]) -> CLLocationCoordinate2D in
-                return CLLocationCoordinate2D(latitude: Double(pt[latFormat]!), longitude: Double(pt[lngFormat]!))
-            }
-            polygon = MKPolygon(coordinates: UnsafePointer(coords), count: coords.count)
-        }
-        if hull is [[String: Double]] {
-            let coords: [CLLocationCoordinate2D] = (hull as? [[String: Double]])!.map {
-                (pt: [String: Double]) -> CLLocationCoordinate2D in
-                return CLLocationCoordinate2D(latitude: pt[latFormat]!, longitude: pt[lngFormat]!)
-            }
-            polygon = MKPolygon(coordinates: UnsafePointer(coords), count: coords.count)
-        }
-        
-        return polygon
-    }
-    
-    /**
      Create and set in the class a polygon from the hull extracted from the hull function, the hull needs to be in [[Int]] or [[Double]]
      or needs to have a format equal to ["x", "y"] or ["y", "x"]
      - returns: An MKPolygon for direct reuse and set it in the class for future use
@@ -165,6 +135,38 @@ public class Hull {
         return polygon
     }
 
+    
+    /**
+     Create and set in the class a polygon from the hull extracted from the hull function with a specified format, in order for this function to work, you should specify, which value of the format is the lat value and which value is the lng value.
+     If you don't have a format variable of type [String], meaning, your using a pointSet of type [[Int]] or [[Double]], you should the getPolygonWithHull without arguments
+     - parameter latFormat: the value of the format array to represent the latitude
+     - parameter lngFormat: the value of the format array to represent the longitude
+     - returns: An MKPolygon for direct reuse and set it in the class for future use
+     */
+    public func getPolygonWithHull(latFormat: String, lngFormat: String) -> MKPolygon {
+        if format == nil {
+            return getPolygonWithHull()
+        }
+        
+        if hull is [[String: Int]] {
+            let coords: [CLLocationCoordinate2D] = (hull as? [[String: Int]])!.map {
+                (pt: [String: Int]) -> CLLocationCoordinate2D in
+                return CLLocationCoordinate2D(latitude: Double(pt[latFormat]!), longitude: Double(pt[lngFormat]!))
+            }
+            polygon = MKPolygon(coordinates: UnsafePointer(coords), count: coords.count)
+        }
+        if hull is [[String: Double]] {
+            let coords: [CLLocationCoordinate2D] = (hull as? [[String: Double]])!.map {
+                (pt: [String: Double]) -> CLLocationCoordinate2D in
+                return CLLocationCoordinate2D(latitude: pt[latFormat]!, longitude: pt[lngFormat]!)
+            }
+            polygon = MKPolygon(coordinates: UnsafePointer(coords), count: coords.count)
+        }
+        
+        return polygon
+    }
+    
+    
     
     /**
      Create and set in the class a polygon from an array of CLLocationCoordinate2D
