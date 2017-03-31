@@ -8,17 +8,20 @@
 
 import Quick
 import Nimble
+import MapKit
 @testable import ConcaveHull
 
 class HullTests: QuickSpec {
 
     override func spec() {
         describe("First Full Hull Test") {
+            let h : Hull = Hull()
+            
             let points = [[162, 332], [182, 299], [141, 292], [158, 264], [141, 408], [160, 400], [177, 430], [151, 442], [155, 425], [134, 430], [126, 447], [139, 466], [160, 471], [167, 447], [182, 466], [192, 442], [187, 413], [173, 403], [168, 425], [153, 413], [179, 275], [163, 292], [134, 270], [143, 315], [177, 320], [163, 311], [162, 281], [182, 255], [141, 226], [156, 235], [173, 207], [187, 230], [204, 194], [165, 189], [145, 201], [158, 167], [190, 165], [206, 145], [179, 153], [204, 114], [221, 138], [243, 112], [248, 139], [177, 122], [179, 99], [196, 82], [219, 90], [240, 75], [218, 61], [228, 53], [211, 34], [197, 51], [179, 65], [155, 70], [165, 85], [134, 80], [124, 58], [153, 44], [173, 34], [192, 27], [156, 19], [119, 32], [128, 17], [138, 36], [100, 58], [112, 73], [100, 92], [78, 100], [83, 78], [61, 63], [80, 44], [100, 26], [60, 39], [43, 71], [34, 54], [32, 90], [53, 104], [60, 82], [66, 99], [247, 94], [187, 180], [221, 168]]
             
             let expected: [[Double]] = [[248, 139], [221, 168], [204, 194], [187, 230], [182, 255], [182, 299], [177, 320], [160, 400], [173, 403], [187, 413], [192, 442], [182, 466], [160, 471], [139, 466], [126, 447], [141, 408], [162, 332], [143, 315], [141, 292], [134, 270], [141, 226], [145, 201], [158, 167], [177, 122], [179, 99], [165, 85], [134, 80], [100, 92], [78, 100], [53, 104], [32, 90], [34, 54], [60, 39], [100, 26], [128, 17], [156, 19], [192, 27], [211, 34], [228, 53], [240, 75], [247, 94], [248, 139]]
             
-            let out = Hull().hull(points, 50, nil) as? [[Double]]
+            let out = h.hull(points, 50, nil) as? [[Double]]
             
             for r in expected {
                 let rex = out!.contains(where: {
@@ -30,7 +33,7 @@ class HullTests: QuickSpec {
                 })
                 
                 it("should return correct hull") {
-                    expect(true) == rex
+                    expect(rex) == true
                 }
             }
             
@@ -44,20 +47,36 @@ class HullTests: QuickSpec {
                 })
                 
                 it("should return correct hull") {
-                    expect(true) == rex
+                    expect(rex) == true
                 }
             }
             
             it(expected.count.description.appending(" should be equal to ").appending(out!.count.description)) {
-                expect(expected.count) == out!.count
+                expect(out!.count) == expected.count
             }
+            
+            _ = h.getPolygonWithHull()
+            
+            
+            for p in points {
+                it(p.description.appending(" should be in the polygon")) {
+                    expect(h.pointInPolygon(mapPoint: MKMapPoint(x: Double(p[0]), y: Double(p[1])))) == true
+                }
+            }
+            
+            it([0, 0].description.appending(" shouldn't be in the polygon")) {
+                expect(h.pointInPolygon(mapPoint: MKMapPoint(x: 0.0, y: 0.0))) == false
+            }
+            
         }
         
         describe("Second Full Hull Test") {
+            let h : Hull = Hull()
+            
             let points2 = [[141, 408], [160, 400], [177, 430], [151, 442], [155, 425], [134, 430], [126, 447], [139, 466], [160, 471], [167, 447], [182, 466], [192, 442], [187, 413], [173, 403], [165, 430], [171, 430], [177, 437], [175, 443], [172, 444], [163, 448], [156, 447], [153, 438], [154, 431], [160, 428]]
             let expected2: [[Double]] = [[192, 442], [182, 466], [160, 471], [139, 466], [126, 447], [141, 408], [160, 400], [173, 403], [187, 413], [192, 442]]
             
-            let out = Hull().hull(points2, 50, nil) as? [[Double]]
+            let out = h.hull(points2, 50, nil) as? [[Double]]
             
             for r in expected2 {
                 let rex = out!.contains(where: {
@@ -69,7 +88,7 @@ class HullTests: QuickSpec {
                 })
                 
                 it("should return only outer hull of the polygon with hole") {
-                    expect(true) == rex
+                    expect(rex) == true
                 }
             }
         
@@ -84,16 +103,33 @@ class HullTests: QuickSpec {
                 })
                 
                 it("should return only outer hull of the polygon with hole") {
-                    expect(true) == rex
+                    expect(rex) == true
                 }
             }
             
             it(expected2.count.description.appending(" should be equal to ").appending(out!.count.description)) {
-                expect(expected2.count) == out!.count
+                expect(out!.count) == expected2.count
             }
+            
+            _ = h.getPolygonWithHull()
+            
+            
+            for p in points2 {
+                it(p.description.appending(" should be in the polygon")) {
+                    expect(h.pointInPolygon(mapPoint: MKMapPoint(x: Double(p[0]), y: Double(p[1])))) == true
+                }
+            }
+            
+            it([0, 0].description.appending(" shouldn't be in the polygon")) {
+                expect(h.pointInPolygon(mapPoint: MKMapPoint(x: 0.0, y: 0.0))) == false
+            }
+
         }
         
         describe("Lat, Lng Full Hull Test") {
+            
+            let h : Hull = Hull()
+            
             let points3 = [["lng": -0.206792373176235, "lat": 51.4911165465815 ],
                            ["lng": -0.207062672933557, "lat": 51.4915703125214 ],
                            ["lng": -0.207465840096923, "lat": 51.4912077781219 ],
@@ -119,7 +155,7 @@ class HullTests: QuickSpec {
                                       ["lng": -0.208133371509344, "lat": 51.4910830915252 ],
                                       ["lng": -0.206792373176235, "lat": 51.4911165465815 ]]
             
-            let out: [[String: Double]]? = Hull().hull(points3, 0.0011, ["lng", "lat"]) as? [[String: Double]]
+            let out: [[String: Double]]? = h.hull(points3, 0.0011, ["lng", "lat"]) as? [[String: Double]]
             
             for r in expected3 {
                 let rex = out!.contains(where: {
@@ -131,7 +167,7 @@ class HullTests: QuickSpec {
                 })
                 
                 it("should return only outer hull of the polygon with hole") {
-                    expect(true) == rex
+                    expect(rex) == true
                 }
             }
             
@@ -145,12 +181,25 @@ class HullTests: QuickSpec {
                 })
                 
                 it("should return only outer hull of the polygon with hole") {
-                    expect(true) == rex
+                    expect(rex) == true
                 }
             }
             
             it(expected3.count.description.appending(" should be equal to ").appending(out!.count.description)) {
                 expect(expected3.count) == out!.count
+            }
+            
+            _ = h.getPolygonWithHull(latFormat: "lat", lngFormat: "lng")
+            
+            
+            for p in points3 {
+                it(p.description.appending(" should be in the polygon")) {
+                    expect(h.coordInPolygon(coord: CLLocationCoordinate2D(latitude: p["lat"]!, longitude: p["lng"]!))) == true
+                }
+            }
+            
+            it([0, 0].description.appending(" shouldn't be in the polygon")) {
+                expect(h.coordInPolygon(coord: CLLocationCoordinate2D(latitude: 0, longitude: 0))) == false
             }
         }
     }

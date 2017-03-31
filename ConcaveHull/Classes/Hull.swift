@@ -10,14 +10,22 @@
 //
 
 import Foundation
+import MapKit
 
 /**
  Only public class of this pod, Use it to call the hull function Hull().hull(_, _, _)
  */
 public class Hull {
-    public let MaxConcaveAngleCos = cos(90 / (180 / Double.pi)) // angle = 90 deg
-    public let MaxSearchBboxSizePercent = 0.6
+    let MaxConcaveAngleCos = cos(90 / (180 / Double.pi)) // angle = 90 deg
+    let MaxSearchBboxSizePercent = 0.6
+    
+    public var polygon: MKPolygon = MKPolygon()
+    public var hull: [Any] = [Any]()
+    public var format: [String]?
 
+    /**
+     Nothing in the init, just call it to initialize the class and use the hull function
+     */
     public init() {
     }
 
@@ -30,6 +38,8 @@ public class Hull {
      - returns: An array of point in the same format as poinSet, that is the hull of the pointSet
      */
     public func hull(_ pointSet: [Any], _ concavity: Double?, _ format: [String]?) -> [Any] {
+        self.format = format
+        
         var convex: [[Double]]
         var concave: [[Double]]
         var innerPoints: [[Double]]
@@ -39,7 +49,8 @@ public class Hull {
         var points: [[Double]]
         let maxEdgeLen: Double = concavity ?? 20
         var skipList: [String: Bool] = [String: Bool]()
-
+        
+        
         if pointSet.count < 4 {
             return pointSet
         }
@@ -74,9 +85,132 @@ public class Hull {
 
         concave = concaveFunc(&convex, pow(maxEdgeLen, 2), maxSearchArea, g, &skipList)
 
-        return Format().fromXy(concave, format)
+        hull = Format().fromXy(concave, format)
+        return hull
+    }
+    
+    /**
+     Create and set in the class a polygon from the hull extracted from the hull function with a specified format, in order for this function to work, you should specify, which value of the format is the lat value and which value is the lng value.
+     If you don't have a format variable of type [String], meaning, your using a pointSet of type [[Int]] or [[Double]], you should the getPolygonWithHull without arguments
+     - parameter latFormat: the value of the format array to represent the latitude
+     - parameter lngFormat: the value of the format array to represent the longitude
+     - returns: An MKPolygon for direct reuse and set it in the class for future use
+     */
+    public func getPolygonWithHull(latFormat: String, lngFormat: String) -> MKPolygon {
+        if format == nil {
+            return getPolygonWithHull()
+        }
+        
+        if hull is [[String: Int]] {
+            let coords: [CLLocationCoordinate2D] = (hull as? [[String: Int]])!.map {
+                (pt: [String: Int]) -> CLLocationCoordinate2D in
+                return CLLocationCoordinate2D(latitude: Double(pt[latFormat]!), longitude: Double(pt[lngFormat]!))
+            }
+            polygon = MKPolygon(coordinates: UnsafePointer(coords), count: coords.count)
+        }
+        if hull is [[String: Double]] {
+            let coords: [CLLocationCoordinate2D] = (hull as? [[String: Double]])!.map {
+                (pt: [String: Double]) -> CLLocationCoordinate2D in
+                return CLLocationCoordinate2D(latitude: pt[latFormat]!, longitude: pt[lngFormat]!)
+            }
+            polygon = MKPolygon(coordinates: UnsafePointer(coords), count: coords.count)
+        }
+        
+        return polygon
+    }
+    
+    /**
+     Create and set in the class a polygon from the hull extracted from the hull function, the hull needs to be in [[Int]] or [[Double]]
+     or needs to have a format equal to ["x", "y"] or ["y", "x"]
+     - returns: An MKPolygon for direct reuse and set it in the class for future use
+     */
+    public func getPolygonWithHull() -> MKPolygon {
+        if format != nil {
+            if !(format?[0] == "x" && format?[1] == "y" || format?[1] == "x" && format?[0] == "y") {
+                return polygon
+            }
+        }
+        
+        if format != nil {
+            if hull is [[String: Int]] {
+                let points: [MKMapPoint] = (hull as? [[String: Int]])!.map {
+                    (pt: [String: Int]) -> MKMapPoint in
+                    return MKMapPoint(x: Double(pt["x"]!) , y: Double(pt["y"]!))
+                }
+                polygon = MKPolygon(points: UnsafePointer(points), count: points.count)
+            }
+            if hull is [[String: Double]] {
+                let points: [MKMapPoint] = (hull as? [[String: Double]])!.map {
+                    (pt: [String: Double]) -> MKMapPoint in
+                    return MKMapPoint(x: pt["x"]! , y: pt["y"]!)
+                }
+                polygon = MKPolygon(points: UnsafePointer(points), count: points.count)
+            }
+            
+            return polygon
+        }
+        
+        let points: [MKMapPoint] = (hull as? [[Any]])!.map {
+            (pt: [Any]) -> MKMapPoint in
+            if pt[0] is Int {
+                return MKMapPoint(x: Double((pt[0] as? Int)!) , y: Double((pt[1] as? Int)!))
+            }
+            if pt[0] is Double {
+                return MKMapPoint(x: (pt[0] as? Double)! , y: (pt[1] as? Double)!)
+            }
+            return MKMapPoint()
+        }
+        polygon = MKPolygon.init(points: UnsafePointer(points), count: points.count)
+        
+        return polygon
     }
 
+    
+    /**
+     Create and set in the class a polygon from an array of CLLocationCoordinate2D
+     - parameter coords: An array of CLLocationCoordinate2D
+     - returns: An MKPolygon for direct reuse and set it in the class for future use
+     */
+    public func getPolygon(coords: [CLLocationCoordinate2D]) -> MKPolygon {
+        polygon = MKPolygon.init(coordinates: UnsafePointer(coords), count: coords.count)
+        return polygon
+    }
+
+    /**
+     Create and set in the class a polygon from an array of MKMapPoint
+     - parameter points: An array of MKMapPoint
+     - returns: An MKPolygon for direct reuse and set it in the class for future use
+     */
+    public func getPolygon(points: [MKMapPoint]) -> MKPolygon {
+        polygon = MKPolygon.init(points: UnsafePointer(points), count: points.count)
+        return polygon
+    }
+
+    /** 
+     Check if CLLocationCoordinate2D is inside a polygon
+     - parameter coord: A CLLocationCoordinate2D variable
+     - returns: A Boolean value, true if CLLocationCoordinate2D is in polygon, false if not
+     */
+    public func coordInPolygon(coord: CLLocationCoordinate2D) -> Bool {
+        //let p : CGPoint = MKPolygonRenderer(polygon: polygon)
+        let mapPoint: MKMapPoint = MKMapPointForCoordinate(coord)
+        return self.pointInPolygon(mapPoint: mapPoint)
+    }
+    
+    /**
+     Check if MKMapPoint is inside a polygon
+     - parameter mapPoint: An MKMapPoint variable
+     - returns: A Boolean value, true if MKMapPoint is in polygon, false if not
+     */
+    public func pointInPolygon(mapPoint: MKMapPoint) -> Bool {
+        let polygonRenderer: MKPolygonRenderer = MKPolygonRenderer(polygon: polygon)
+        let polygonViewPoint: CGPoint = polygonRenderer.point(for: mapPoint)
+        if polygonRenderer.path == nil {
+            return false
+        }
+        return polygonRenderer.path.contains(polygonViewPoint)
+    }
+    
     func filterDuplicates(_ pointSet: [[Double]]) -> [[Double]] {
         return pointSet.filter {
             (p: [Double]) -> Bool  in
