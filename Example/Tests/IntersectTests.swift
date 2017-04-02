@@ -14,8 +14,6 @@ import MapKit
 class IntersectSpec: QuickSpec {
     override func spec() {
         
-        let h = Hull()
-        h.polygon = MKPolygon()
         describe("Intersect Test") {
             
             it("should return false for the parallel segments") {

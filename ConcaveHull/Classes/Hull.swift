@@ -19,14 +19,36 @@ public class Hull {
     let MaxConcaveAngleCos = cos(90 / (180 / Double.pi)) // angle = 90 deg
     let MaxSearchBboxSizePercent = 0.6
     
+    /** 
+     A public polygon created with the getPolygon Functions
+     */
     public var polygon: MKPolygon = MKPolygon()
+    
+    /** 
+     The hull created with the hull functions
+     */
     public var hull: [Any] = [Any]()
-    public var format: [String]?
+    
+    var format: [String]?
+    
+    /**
+     The concavity paramater for the hull function, 20 is the default
+    */
+    public var concavity: Double = 20
 
     /**
-     Nothing in the init, just call it to initialize the class and use the hull function
+     Init function
      */
     public init() {
+    }
+    
+    /**
+     Init function and set the concavity, if nil, the concavity will be equal to 20
+     */
+    public init(concavity : Double?) {
+        if concavity != nil {
+            self.concavity = concavity!
+        }
     }
 
     /**
@@ -35,13 +57,13 @@ public class Hull {
      - parameter pointSet: The list of point, can be of type [Int], [Double], [[String: Double]] or [[String: Int]]
      - parameter concavity: The concavity from > 0 to Infinity (Infinity being a convexe Hull
      - parameter format: The name of String in [[String: Double]] or [[String: Int]] in an array, nil of pointSet is [Int] or [Double]
-     - returns: An array of point in the same format as poinSet, that is the hull of the pointSet
+     - returns: An array of point in the same format as poinSet, which is the hull of the pointSet
      */
-    public func hull(_ pointSet: [Any], _ concavity: Double?, _ format: [String]?) -> [Any] {
+    public func hull(_ pointSet: [Any], _ format: [String]?) -> [Any] {
         self.format = format
         
         var convex: [[Double]]
-        var concave: [[Double]]
+        
         var innerPoints: [[Double]]
         var occupiedArea: [Double]
         var maxSearchArea: [Double]
@@ -83,11 +105,143 @@ public class Hull {
 
         let g = Grid(innerPoints, cellSize)
 
-        concave = concaveFunc(&convex, pow(maxEdgeLen, 2), maxSearchArea, g, &skipList)
+        let concave: [[Double]] = concaveFunc(&convex, pow(maxEdgeLen, 2), maxSearchArea, g, &skipList)
 
         hull = Format().fromXy(concave, format)
         return hull
     }
+    
+    /**
+     This main function allows to create the hull of a set of point by defining the desired concavity of the return hull. In this function, there is no need for the format
+     
+     - parameter mapPoints: The list of point as MKMapPoint
+     - returns: An array of point in the same format as pointSet, which is the hull of the pointSet
+     */
+    public func hull(mapPoints: [MKMapPoint]) -> [MKMapPoint] {
+ 
+        var convex: [[Double]]
+        var innerPoints: [[Double]]
+        var occupiedArea: [Double]
+        var maxSearchArea: [Double]
+        var cellSize: Double
+        var points: [[Double]]
+        let maxEdgeLen: Double = concavity ?? 20
+        var skipList: [String: Bool] = [String: Bool]()
+        
+        
+        if mapPoints.count < 4 {
+            return mapPoints
+        }
+        
+        let newPointSet = mapPoints.map {
+            (mp: MKMapPoint) -> [Double] in
+            return [mp.x, mp.y]
+        }
+        
+        points = filterDuplicates(sortByX(Format().toXy(newPointSet, format)))
+        occupiedArea = occupiedAreaFunc(points)
+        maxSearchArea = [occupiedArea[0] * MaxSearchBboxSizePercent,
+                         occupiedArea[1] * MaxSearchBboxSizePercent]
+        
+        convex = Convex(points).convex
+        
+        innerPoints = points.filter {
+            (p: [Double]) -> Bool in
+            let idx = convex.index(where: {
+                (i: [Double]) -> Bool in
+                return i[0] == p[0] && i[1] == p[1]
+            })
+            return idx == nil
+        }
+        
+        innerPoints.sort(by: {
+            (a: [Double], b: [Double]) -> Bool in
+            if a[0] != b[0] {
+                return a[0] > b[0]
+            } else {
+                return a[1] > b[1]
+            }
+        })
+        
+        cellSize = ceil(occupiedArea[0] * occupiedArea[1] / Double(points.count))
+        
+        let g = Grid(innerPoints, cellSize)
+        
+        let concave: [[Double]] = concaveFunc(&convex, pow(maxEdgeLen, 2), maxSearchArea, g, &skipList)
+        
+        hull = Format().fromXy(concave, format)
+        return (hull as? [[Double]])!.map {
+            (p: [Double]) -> MKMapPoint in
+            return MKMapPoint(x: p[0], y: p[1])
+        }
+    }
+    
+    /**
+     This main function allows to create the hull of a set of point by defining the desired concavity of the return hull. In this function, there is no need for the format
+     
+     - parameter coordinates: The list of point as CLLocationCoordinate2D
+     - returns: An array of point in the same format as pointSet, which is the hull of the pointSet
+     */
+    public func hull(coordinates: [CLLocationCoordinate2D]) -> [CLLocationCoordinate2D] {
+        
+        var convex: [[Double]]
+        
+        var innerPoints: [[Double]]
+        var occupiedArea: [Double]
+        var maxSearchArea: [Double]
+        var cellSize: Double
+        var points: [[Double]]
+        let maxEdgeLen: Double = concavity ?? 20
+        var skipList: [String: Bool] = [String: Bool]()
+        
+        
+        if coordinates.count < 4 {
+            return coordinates
+        }
+        
+        let newPointSet = coordinates.map {
+            (mp: CLLocationCoordinate2D) -> [Double] in
+            return [mp.latitude, mp.longitude]
+        }
+        
+        points = filterDuplicates(sortByX(Format().toXy(newPointSet, format)))
+        occupiedArea = occupiedAreaFunc(points)
+        maxSearchArea = [occupiedArea[0] * MaxSearchBboxSizePercent,
+                         occupiedArea[1] * MaxSearchBboxSizePercent]
+        
+        convex = Convex(points).convex
+        
+        innerPoints = points.filter {
+            (p: [Double]) -> Bool in
+            let idx = convex.index(where: {
+                (i: [Double]) -> Bool in
+                return i[0] == p[0] && i[1] == p[1]
+            })
+            return idx == nil
+        }
+        
+        innerPoints.sort(by: {
+            (a: [Double], b: [Double]) -> Bool in
+            if a[0] != b[0] {
+                return a[0] > b[0]
+            } else {
+                return a[1] > b[1]
+            }
+        })
+        
+        cellSize = ceil(occupiedArea[0] * occupiedArea[1] / Double(points.count))
+        
+        let g = Grid(innerPoints, cellSize)
+        
+        let concave: [[Double]] = concaveFunc(&convex, pow(maxEdgeLen, 2), maxSearchArea, g, &skipList)
+        
+        hull = Format().fromXy(concave, format)
+        return (hull as? [[Double]])!.map {
+            (p: [Double]) -> CLLocationCoordinate2D in
+            return CLLocationCoordinate2D(latitude: p[0], longitude: p[1])
+        }
+    }
+
     
     /**
      Create and set in the class a polygon from the hull extracted from the hull function, the hull needs to be in [[Int]] or [[Double]]
@@ -231,6 +385,7 @@ public class Hull {
             }
         }
     }
+    
 
     func sortByX(_ pointSet: [[Double]]) -> [[Double]] {
         return pointSet.sorted(by: {

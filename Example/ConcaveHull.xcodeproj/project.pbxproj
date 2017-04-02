@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88218D7A1E9193610054DC8F /* CHANGELOG.md in Sources */ = {isa = PBXBuildFile; fileRef = 88218D791E9193610054DC8F /* CHANGELOG.md */; };
+		88218D821E9194F20054DC8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88218D811E9194F20054DC8F /* AppDelegate.swift */; };
+		88218D841E9194F20054DC8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88218D831E9194F20054DC8F /* ViewController.swift */; };
+		88218D871E9194F20054DC8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88218D851E9194F20054DC8F /* Main.storyboard */; };
+		88218D8A1E9194F20054DC8F /* ConcaveHullExample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 88218D881E9194F20054DC8F /* ConcaveHullExample.xcdatamodeld */; };
+		88218D8C1E9194F20054DC8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88218D8B1E9194F20054DC8F /* Assets.xcassets */; };
+		88218D8F1E9194F20054DC8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88218D8D1E9194F20054DC8F /* LaunchScreen.storyboard */; };
 		88F655291E8AF7AA00B03A5B /* IntersectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F655261E8AF7AA00B03A5B /* IntersectTests.swift */; };
 		88F6552A1E8AF7AA00B03A5B /* HullTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F655271E8AF7AA00B03A5B /* HullTests.swift */; };
 		88F6552B1E8AF7AA00B03A5B /* GridTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F655281E8AF7AA00B03A5B /* GridTests.swift */; };
@@ -17,6 +24,15 @@
 		48E117333680BE7CE04128EA /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* ConcaveHull_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConcaveHull_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88218D791E9193610054DC8F /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
+		88218D7F1E9194F10054DC8F /* ConcaveHullExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConcaveHullExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		88218D811E9194F20054DC8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		88218D831E9194F20054DC8F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		88218D861E9194F20054DC8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		88218D891E9194F20054DC8F /* ConcaveHullExample.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ConcaveHullExample.xcdatamodel; sourceTree = "<group>"; };
+		88218D8B1E9194F20054DC8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		88218D8E1E9194F20054DC8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		88218D901E9194F20054DC8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88F655261E8AF7AA00B03A5B /* IntersectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntersectTests.swift; sourceTree = "<group>"; };
 		88F655271E8AF7AA00B03A5B /* HullTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HullTests.swift; sourceTree = "<group>"; };
 		88F655281E8AF7AA00B03A5B /* GridTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridTests.swift; sourceTree = "<group>"; };
@@ -36,6 +52,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		88218D7C1E9194F10054DC8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -44,6 +67,7 @@
 			children = (
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACE81AFB9204008FA782 /* Tests */,
+				88218D801E9194F10054DC8F /* ConcaveHullExample */,
 				607FACD11AFB9204008FA782 /* Products */,
 				A97BC001F4F6B12B3C4EB55A /* Pods */,
 				DE0750096031DF9622BF0020 /* Frameworks */,
@@ -54,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACE51AFB9204008FA782 /* ConcaveHull_Tests.xctest */,
+				88218D7F1E9194F10054DC8F /* ConcaveHullExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,8 +108,23 @@
 				CA30E1BA599D11AC7E3C4919 /* ConcaveHull.podspec */,
 				F908CE052C4CB7C1D8FB959B /* README.md */,
 				48E117333680BE7CE04128EA /* LICENSE */,
+				88218D791E9193610054DC8F /* CHANGELOG.md */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		88218D801E9194F10054DC8F /* ConcaveHullExample */ = {
+			isa = PBXGroup;
+			children = (
+				88218D811E9194F20054DC8F /* AppDelegate.swift */,
+				88218D831E9194F20054DC8F /* ViewController.swift */,
+				88218D851E9194F20054DC8F /* Main.storyboard */,
+				88218D8B1E9194F20054DC8F /* Assets.xcassets */,
+				88218D8D1E9194F20054DC8F /* LaunchScreen.storyboard */,
+				88218D901E9194F20054DC8F /* Info.plist */,
+				88218D881E9194F20054DC8F /* ConcaveHullExample.xcdatamodeld */,
+			);
+			path = ConcaveHullExample;
 			sourceTree = "<group>";
 		};
 		A97BC001F4F6B12B3C4EB55A /* Pods */ = {
@@ -127,13 +167,30 @@
 			productReference = 607FACE51AFB9204008FA782 /* ConcaveHull_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		88218D7E1E9194F10054DC8F /* ConcaveHullExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88218D9C1E9194F30054DC8F /* Build configuration list for PBXNativeTarget "ConcaveHullExample" */;
+			buildPhases = (
+				88218D7B1E9194F10054DC8F /* Sources */,
+				88218D7C1E9194F10054DC8F /* Frameworks */,
+				88218D7D1E9194F10054DC8F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ConcaveHullExample;
+			productName = ConcaveHullExample;
+			productReference = 88218D7F1E9194F10054DC8F /* ConcaveHullExample.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
@@ -141,6 +198,11 @@
 						CreatedOnToolsVersion = 6.3.1;
 						LastSwiftMigration = 0820;
 						TestTargetID = 607FACCF1AFB9204008FA782;
+					};
+					88218D7E1E9194F10054DC8F = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 9VAH9L779R;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -157,6 +219,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				88218D7E1E9194F10054DC8F /* ConcaveHullExample */,
 				607FACE41AFB9204008FA782 /* ConcaveHull_Tests */,
 			);
 		};
@@ -167,6 +230,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88218D7D1E9194F10054DC8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88218D8F1E9194F20054DC8F /* LaunchScreen.storyboard in Resources */,
+				88218D8C1E9194F20054DC8F /* Assets.xcassets in Resources */,
+				88218D871E9194F20054DC8F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,10 +301,40 @@
 				88F6552A1E8AF7AA00B03A5B /* HullTests.swift in Sources */,
 				88F655291E8AF7AA00B03A5B /* IntersectTests.swift in Sources */,
 				88F6552B1E8AF7AA00B03A5B /* GridTests.swift in Sources */,
+				88218D7A1E9193610054DC8F /* CHANGELOG.md in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88218D7B1E9194F10054DC8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88218D8A1E9194F20054DC8F /* ConcaveHullExample.xcdatamodeld in Sources */,
+				88218D841E9194F20054DC8F /* ViewController.swift in Sources */,
+				88218D821E9194F20054DC8F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		88218D851E9194F20054DC8F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88218D861E9194F20054DC8F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		88218D8D1E9194F20054DC8F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88218D8E1E9194F20054DC8F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		607FACED1AFB9204008FA782 /* Debug */ = {
@@ -363,6 +466,40 @@
 			};
 			name = Release;
 		};
+		88218D9D1E9194F30054DC8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 9VAH9L779R;
+				INFOPLIST_FILE = ConcaveHullExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fr.appProviders.ConcaveHullExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		88218D9E1E9194F30054DC8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				DEVELOPMENT_TEAM = 9VAH9L779R;
+				INFOPLIST_FILE = ConcaveHullExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fr.appProviders.ConcaveHullExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -384,7 +521,28 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		88218D9C1E9194F30054DC8F /* Build configuration list for PBXNativeTarget "ConcaveHullExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88218D9D1E9194F30054DC8F /* Debug */,
+				88218D9E1E9194F30054DC8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		88218D881E9194F20054DC8F /* ConcaveHullExample.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				88218D891E9194F20054DC8F /* ConcaveHullExample.xcdatamodel */,
+			);
+			currentVersion = 88218D891E9194F20054DC8F /* ConcaveHullExample.xcdatamodel */;
+			path = ConcaveHullExample.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 607FACC81AFB9204008FA782 /* Project object */;
 }
