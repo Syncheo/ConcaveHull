@@ -7,18 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		88218D7A1E9193610054DC8F /* CHANGELOG.md in Sources */ = {isa = PBXBuildFile; fileRef = 88218D791E9193610054DC8F /* CHANGELOG.md */; };
 		88218D821E9194F20054DC8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88218D811E9194F20054DC8F /* AppDelegate.swift */; };
 		88218D841E9194F20054DC8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88218D831E9194F20054DC8F /* ViewController.swift */; };
 		88218D871E9194F20054DC8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88218D851E9194F20054DC8F /* Main.storyboard */; };
 		88218D8A1E9194F20054DC8F /* ConcaveHullExample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 88218D881E9194F20054DC8F /* ConcaveHullExample.xcdatamodeld */; };
 		88218D8C1E9194F20054DC8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88218D8B1E9194F20054DC8F /* Assets.xcassets */; };
 		88218D8F1E9194F20054DC8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88218D8D1E9194F20054DC8F /* LaunchScreen.storyboard */; };
+		88218DB31E922C790054DC8F /* ConcaveHull.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88218DB21E922C790054DC8F /* ConcaveHull.framework */; };
+		88218DB41E922C790054DC8F /* ConcaveHull.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88218DB21E922C790054DC8F /* ConcaveHull.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		88218DB71E923B680054DC8F /* paris.json in Resources */ = {isa = PBXBuildFile; fileRef = 88218DB61E923B680054DC8F /* paris.json */; };
+		88218DBB1E92487F0054DC8F /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88218DBA1E92487F0054DC8F /* Station.swift */; };
 		88F655291E8AF7AA00B03A5B /* IntersectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F655261E8AF7AA00B03A5B /* IntersectTests.swift */; };
 		88F6552A1E8AF7AA00B03A5B /* HullTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F655271E8AF7AA00B03A5B /* HullTests.swift */; };
 		88F6552B1E8AF7AA00B03A5B /* GridTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F655281E8AF7AA00B03A5B /* GridTests.swift */; };
 		A73653F1632802F90D4090AA /* Pods_ConcaveHull_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F5B0B47BEA3C3B55CE482B /* Pods_ConcaveHull_Tests.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		88218DB11E922A9D0054DC8F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				88218DB41E922C790054DC8F /* ConcaveHull.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		48E117333680BE7CE04128EA /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -33,6 +50,9 @@
 		88218D8B1E9194F20054DC8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88218D8E1E9194F20054DC8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88218D901E9194F20054DC8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88218DB21E922C790054DC8F /* ConcaveHull.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ConcaveHull.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88218DB61E923B680054DC8F /* paris.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = paris.json; sourceTree = "<group>"; };
+		88218DBA1E92487F0054DC8F /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		88F655261E8AF7AA00B03A5B /* IntersectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntersectTests.swift; sourceTree = "<group>"; };
 		88F655271E8AF7AA00B03A5B /* HullTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HullTests.swift; sourceTree = "<group>"; };
 		88F655281E8AF7AA00B03A5B /* GridTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridTests.swift; sourceTree = "<group>"; };
@@ -56,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88218DB31E922C790054DC8F /* ConcaveHull.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +137,7 @@
 		88218D801E9194F10054DC8F /* ConcaveHullExample */ = {
 			isa = PBXGroup;
 			children = (
+				88218DB51E923B5B0054DC8F /* Files */,
 				88218D811E9194F20054DC8F /* AppDelegate.swift */,
 				88218D831E9194F20054DC8F /* ViewController.swift */,
 				88218D851E9194F20054DC8F /* Main.storyboard */,
@@ -123,8 +145,17 @@
 				88218D8D1E9194F20054DC8F /* LaunchScreen.storyboard */,
 				88218D901E9194F20054DC8F /* Info.plist */,
 				88218D881E9194F20054DC8F /* ConcaveHullExample.xcdatamodeld */,
+				88218DBA1E92487F0054DC8F /* Station.swift */,
 			);
 			path = ConcaveHullExample;
+			sourceTree = "<group>";
+		};
+		88218DB51E923B5B0054DC8F /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				88218DB61E923B680054DC8F /* paris.json */,
+			);
+			name = Files;
 			sourceTree = "<group>";
 		};
 		A97BC001F4F6B12B3C4EB55A /* Pods */ = {
@@ -139,6 +170,7 @@
 		DE0750096031DF9622BF0020 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				88218DB21E922C790054DC8F /* ConcaveHull.framework */,
 				C3F5B0B47BEA3C3B55CE482B /* Pods_ConcaveHull_Tests.framework */,
 			);
 			name = Frameworks;
@@ -174,6 +206,7 @@
 				88218D7B1E9194F10054DC8F /* Sources */,
 				88218D7C1E9194F10054DC8F /* Frameworks */,
 				88218D7D1E9194F10054DC8F /* Resources */,
+				88218DB11E922A9D0054DC8F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -196,6 +229,7 @@
 				TargetAttributes = {
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 9VAH9L779R;
 						LastSwiftMigration = 0820;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -238,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88218D8F1E9194F20054DC8F /* LaunchScreen.storyboard in Resources */,
+				88218DB71E923B680054DC8F /* paris.json in Resources */,
 				88218D8C1E9194F20054DC8F /* Assets.xcassets in Resources */,
 				88218D871E9194F20054DC8F /* Main.storyboard in Resources */,
 			);
@@ -301,7 +336,6 @@
 				88F6552A1E8AF7AA00B03A5B /* HullTests.swift in Sources */,
 				88F655291E8AF7AA00B03A5B /* IntersectTests.swift in Sources */,
 				88F6552B1E8AF7AA00B03A5B /* GridTests.swift in Sources */,
-				88218D7A1E9193610054DC8F /* CHANGELOG.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +345,7 @@
 			files = (
 				88218D8A1E9194F20054DC8F /* ConcaveHullExample.xcdatamodeld in Sources */,
 				88218D841E9194F20054DC8F /* ViewController.swift in Sources */,
+				88218DBB1E92487F0054DC8F /* Station.swift in Sources */,
 				88218D821E9194F20054DC8F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,9 +468,11 @@
 			baseConfigurationReference = D900B520BD29237A25A0F0F8 /* Pods-ConcaveHull_Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 9VAH9L779R;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -454,9 +491,11 @@
 			baseConfigurationReference = C19D20045C5ED4BE3B5B0902 /* Pods-ConcaveHull_Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 9VAH9L779R;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -473,6 +512,10 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 9VAH9L779R;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ConcaveHullExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -490,6 +533,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				DEVELOPMENT_TEAM = 9VAH9L779R;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ConcaveHullExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
