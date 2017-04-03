@@ -94,13 +94,13 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
             (s: Station) -> CLLocationCoordinate2D in
             return s.coordinate
         }
-        
+
         self.map?.addAnnotations(arrayOfStations)
         let mapRect: MKMapRect? = self.createMapRect(with: arrayOfStations)
         self.zoomMapViewToFitAnnotations(mapRect: mapRect!, count: (self.map?.annotations.count)!, animated: true)
         drawPolygon()
     }
-    
+
     func drawPolygon() {
         self.map?.removeOverlays((self.map?.overlays)!)
         h = Hull()
@@ -110,8 +110,7 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
         let polygon = h.getPolygon(coords: hull)
         self.map?.add(polygon)
     }
-    
-    
+
     func fetch(data: Data) {
         var array: [Station] = [Station].init()
         do {
@@ -119,7 +118,7 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
             if tempArrayOfStation == nil || tempArrayOfStation!.count == 0  {
                 arrayOfStations = array
             }
-            
+
             for stat in tempArrayOfStation! {
                 if stat is [String: Any] {
                     let myStat = stat as? [String: Any]
@@ -129,13 +128,13 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
                     }
                 }
             }
-            
+
             arrayOfStations = array
         } catch {
             print(error)
         }
     }
-    
+
     func createMapRect(with annotations: [Station]) -> MKMapRect? {
         let count = annotations.count
         if count == 0 {
@@ -145,7 +144,7 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
         for anno in annotations {
             points.append(MKMapPointForCoordinate(anno.coordinate))
         }
-        
+
         return MKPolygon.init(points: points, count: points.count).boundingMapRect
     }
 
@@ -158,7 +157,7 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
         // add padding so pins aren't scrunched on the edges
         region.span.latitudeDelta *= ANNOTATION_REGION_PAD_FACTOR
         region.span.longitudeDelta *= ANNOTATION_REGION_PAD_FACTOR
-        
+
         // but padding can't be bigger than the world
         if region.span.latitudeDelta > MAX_DEGREES_ARC {
             region.span.latitudeDelta = MAX_DEGREES_ARC
@@ -166,7 +165,7 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
         if region.span.longitudeDelta > MAX_DEGREES_ARC {
             region.span.longitudeDelta = MAX_DEGREES_ARC
         }
-        
+
         // and don't zoom in stupid-close on small samples
         if region.span.latitudeDelta < MINIMUM_ZOOM_ARC {
             region.span.latitudeDelta = MINIMUM_ZOOM_ARC
@@ -174,7 +173,7 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
         if region.span.longitudeDelta < MINIMUM_ZOOM_ARC {
             region.span.longitudeDelta = MINIMUM_ZOOM_ARC
         }
-        
+
         // and if there is a sample of 1 we want the max zoom-in instead of max zoom-out
         if count == 1 {
             region.span.latitudeDelta = MINIMUM_ZOOM_ARC
@@ -185,14 +184,13 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
 
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer: MKPolylineRenderer = MKPolylineRenderer.init(overlay: overlay)
-        
+
         let lineWidth: CGFloat = 6
         let lineColor: UIColor = UIColor.blue
         renderer.fillColor = lineColor
         renderer.strokeColor = lineColor
         renderer.lineWidth = lineWidth
-        
-       
+
         return renderer
     }
 
@@ -203,7 +201,6 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
         } else {
             return 0.5
         }
-        
     }
 }
 
