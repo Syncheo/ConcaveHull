@@ -12,21 +12,21 @@
 import Foundation
 
 class Convex {
-    var convex: [[Double]] = [[Double]]()
+    var convex: [Point] = [Point]()
 
-    init(_ pointSet: [[Double]]) {
+    init(_ pointSet: [Point]) {
         let upper = upperTangent(pointSet)
         let lower = lowerTangent(pointSet)
         convex = lower + upper
         convex.append(convex[0])
     }
 
-    private func cross(_ o: [Double], _ a: [Double], _ b: [Double]) -> Double {
-        return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0])
+    private func cross(_ ooo: Point, _ aaa: Point, _ bbb: Point) -> Double {
+        return (aaa.xxx - ooo.xxx) * (bbb.yyy - ooo.yyy) - (aaa.yyy - ooo.yyy) * (bbb.xxx - ooo.xxx)
     }
 
-    private func upperTangent(_ pointSet: [[Double]]) -> [[Double]] {
-        var lower = [[Double]]()
+    private func upperTangent(_ pointSet: [Point]) -> [Point] {
+        var lower = [Point]()
         for p in pointSet {
             while lower.count >= 2 && (cross(lower[lower.count - 2], lower[lower.count - 1], p) <= 0) {
                 _ = lower.popLast()
@@ -37,9 +37,9 @@ class Convex {
         return lower
     }
 
-    private func lowerTangent(_ pointSet: [[Double]]) -> [[Double]] {
+    private func lowerTangent(_ pointSet: [Point]) -> [Point] {
         let reversed = pointSet.reversed()
-        var upper = [[Double]]()
+        var upper = [Point]()
         for p in reversed {
             while upper.count >= 2 && (cross(upper[upper.count - 2], upper[upper.count - 1], p) <= 0) {
                 _ = upper.popLast()

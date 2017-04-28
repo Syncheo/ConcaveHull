@@ -4,6 +4,7 @@ target 'ConcaveHull_Tests' do
   
   pod 'Quick', '~> 1.0.0'
   pod 'Nimble', '~> 5.1.1'
+  pod 'SwiftLint'
   
   post_install do |installer|
       installer.pods_project.targets.each do |target|

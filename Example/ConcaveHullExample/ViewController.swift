@@ -11,18 +11,18 @@ import MapKit
 import ConcaveHull
 
 class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
-    let MINIMUM_ZOOM_ARC: CLLocationDegrees = 0.014 //approximately 1 miles (1 degree of arc ~= 69 miles)
-    let ANNOTATION_REGION_PAD_FACTOR: CLLocationDegrees = 1.15
-    let MAX_DEGREES_ARC: CLLocationDegrees = 360
-    
-    var arrayOfStations : [Station] = [Station]()
-    var coordsOfStations : [CLLocationCoordinate2D] = [CLLocationCoordinate2D]()
-    var h: Hull = Hull()
-    
-    @IBOutlet weak var slider : UISlider?
-    @IBOutlet weak var map : MKMapView?
-    @IBOutlet weak var concavityLabel : UILabel?
-    @IBOutlet weak var multiplierTextField : UITextField?
+    let minimumZoomArc: CLLocationDegrees = 0.014 //approximately 1 miles (1 degree of arc ~= 69 miles)
+    let annotationRegionFactorPad: CLLocationDegrees = 1.15
+    let maxDegreesArc: CLLocationDegrees = 360
+
+    var arrayOfStations: [Station] = [Station]()
+    var coordsOfStations: [CLLocationCoordinate2D] = [CLLocationCoordinate2D]()
+    var hull = Hull()
+
+    @IBOutlet weak var slider: UISlider?
+    @IBOutlet weak var map: MKMapView?
+    @IBOutlet weak var concavityLabel: UILabel?
+    @IBOutlet weak var multiplierTextField: UITextField?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +30,11 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
         multiplierTextField?.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
     }
+
     override func viewWillAppear(_ animated: Bool) {
         debugConnectionForParis()
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         concavityLabel?.text = getSliderValue().description
     }
@@ -42,33 +43,33 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     @IBAction func sliderValueChanged(sender: AnyObject) {
         drawPolygon()
     }
-    
+
     @IBAction func multiplierValueChanged(sender: AnyObject) {
         drawPolygon()
     }
-    
+
     @IBAction func showAnnotations() {
         if self.map?.annotations.count == 0 {
             self.map?.addAnnotations(arrayOfStations)
         }
     }
-    
+
     @IBAction func hideAnnotations() {
         if (self.map?.annotations.count)! > 0 {
             self.map?.removeAnnotations((self.map?.annotations)!)
         }
     }
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         drawPolygon()
         return true
     }
-    
+
     func debugConnectionForParis() {
         let filePath = Bundle.main.path(forResource: "paris", ofType: "json")
         if filePath == nil {
@@ -88,11 +89,10 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
         }
     }
 
-    func fetchData(_ d: Data) {
-        fetch(data: d)
-        coordsOfStations = arrayOfStations.map {
-            (s: Station) -> CLLocationCoordinate2D in
-            return s.coordinate
+    func fetchData(_ data: Data) {
+        fetch(data: data)
+        coordsOfStations = arrayOfStations.map { (stat: Station) -> CLLocationCoordinate2D in
+            return stat.coordinate
         }
 
         self.map?.addAnnotations(arrayOfStations)
@@ -103,29 +103,27 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
 
     func drawPolygon() {
         self.map?.removeOverlays((self.map?.overlays)!)
-        h = Hull()
-        h.concavity = getSliderValue()
-        concavityLabel?.text = h.concavity.description
-        let hull = h.hull(coordinates: coordsOfStations)
-        let polygon = h.getPolygon(coords: hull)
+        hull = Hull()
+        hull.concavity = getSliderValue()
+        concavityLabel?.text = hull.concavity.description
+        let hulled = hull.hull(coordinates: coordsOfStations)
+        let polygon = hull.getPolygonWithCoordinates(hulled)
         self.map?.add(polygon)
     }
 
     func fetch(data: Data) {
         var array: [Station] = [Station].init()
         do {
-            let tempArrayOfStation = (try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableLeaves)) as? [Any]
-            if tempArrayOfStation == nil || tempArrayOfStation!.count == 0  {
+            let tempArrayOfStation = (try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)) as? [Any]
+            if tempArrayOfStation == nil || tempArrayOfStation!.count == 0 {
                 arrayOfStations = array
             }
 
-            for stat in tempArrayOfStation! {
-                if stat is [String: Any] {
-                    let myStat = stat as? [String: Any]
-                    let station: Station? = Station(dictionary: myStat!)
-                    if station != nil {
-                        array.append(station!)
-                    }
+            for stat in tempArrayOfStation! where stat is [String: Any] {
+                let myStat = stat as? [String: Any]
+                let station: Station? = Station(dictionary: myStat!)
+                if station != nil {
+                    array.append(station!)
                 }
             }
 
@@ -148,36 +146,36 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
         return MKPolygon.init(points: points, count: points.count).boundingMapRect
     }
 
-    func zoomMapViewToFitAnnotations(mapRect: MKMapRect, count: Int, animated: Bool)  {
+    func zoomMapViewToFitAnnotations(mapRect: MKMapRect, count: Int, animated: Bool) {
         var region: MKCoordinateRegion = MKCoordinateRegionForMapRect(mapRect)
         self.customSetRegion(region: &region, count: count, animated: animated)
     }
 
     func customSetRegion(region: inout MKCoordinateRegion, count: Int, animated: Bool) {
         // add padding so pins aren't scrunched on the edges
-        region.span.latitudeDelta *= ANNOTATION_REGION_PAD_FACTOR
-        region.span.longitudeDelta *= ANNOTATION_REGION_PAD_FACTOR
+        region.span.latitudeDelta *= annotationRegionFactorPad
+        region.span.longitudeDelta *= annotationRegionFactorPad
 
         // but padding can't be bigger than the world
-        if region.span.latitudeDelta > MAX_DEGREES_ARC {
-            region.span.latitudeDelta = MAX_DEGREES_ARC
+        if region.span.latitudeDelta > maxDegreesArc {
+            region.span.latitudeDelta = maxDegreesArc
         }
-        if region.span.longitudeDelta > MAX_DEGREES_ARC {
-            region.span.longitudeDelta = MAX_DEGREES_ARC
+        if region.span.longitudeDelta > maxDegreesArc {
+            region.span.longitudeDelta = maxDegreesArc
         }
 
         // and don't zoom in stupid-close on small samples
-        if region.span.latitudeDelta < MINIMUM_ZOOM_ARC {
-            region.span.latitudeDelta = MINIMUM_ZOOM_ARC
+        if region.span.latitudeDelta < minimumZoomArc {
+            region.span.latitudeDelta = minimumZoomArc
         }
-        if region.span.longitudeDelta < MINIMUM_ZOOM_ARC {
-            region.span.longitudeDelta = MINIMUM_ZOOM_ARC
+        if region.span.longitudeDelta < minimumZoomArc {
+            region.span.longitudeDelta = minimumZoomArc
         }
 
         // and if there is a sample of 1 we want the max zoom-in instead of max zoom-out
         if count == 1 {
-            region.span.latitudeDelta = MINIMUM_ZOOM_ARC
-            region.span.longitudeDelta = MINIMUM_ZOOM_ARC
+            region.span.latitudeDelta = minimumZoomArc
+            region.span.longitudeDelta = minimumZoomArc
         }
         self.map?.setRegion(region, animated: animated)
     }
@@ -203,4 +201,3 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
         }
     }
 }
-

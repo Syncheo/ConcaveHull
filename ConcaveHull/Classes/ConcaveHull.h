@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for APConvexHull.
+// Project version number for APConvexHull.
 FOUNDATION_EXPORT double ConcaveHullVersionNumber;
 
-//! Project version string for APConvexHull.
+// Project version string for APConvexHull.
 FOUNDATION_EXPORT const unsigned char ConcaveHullVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <APConvexHull/PublicHeader.h>

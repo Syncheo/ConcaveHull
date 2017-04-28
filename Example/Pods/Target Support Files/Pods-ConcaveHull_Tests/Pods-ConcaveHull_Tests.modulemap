@@ -1,6 +1,0 @@
-framework module Pods_ConcaveHull_Tests {
-  umbrella header "Pods-ConcaveHull_Tests-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -12,28 +12,28 @@
 import Foundation
 
 class Grid {
-    var cells = [Int: [Int: [[Double]]]]()
+    var cells = [Int: [Int: [Point]]]()
     var cellSize: Double = 0
 
-    init(_ points: [[Double]], _ cellSize: Double) {
+    init(_ points: [Point], _ cellSize: Double) {
         self.cellSize = cellSize
         for point in points {
             let cellXY = point2CellXY(point)
             let x = cellXY[0]
             let y = cellXY[1]
             if cells[x] == nil {
-                cells[x] = [Int: [[Double]]]()
+                cells[x] = [Int: [Point]]()
             }
             if cells[x]![y] == nil {
-                cells[x]![y] = [[Double]]()
+                cells[x]![y] = [Point]()
             }
             cells[x]![y]!.append(point)
         }
     }
 
-    func point2CellXY(_ point: [Double]) -> [Int] {
-        let x = Int(point[0] / self.cellSize)
-        let y = Int(point[1] / self.cellSize)
+    func point2CellXY(_ point: Point) -> [Int] {
+        let x = Int(point.xxx / self.cellSize)
+        let y = Int(point.yyy / self.cellSize)
         return [x, y]
     }
 
@@ -46,12 +46,12 @@ class Grid {
         ]
     }
 
-    func removePoint(_ point: [Double]) {
+    func removePoint(_ point: Point) {
         let cellXY = point2CellXY(point)
         var cell = cells[cellXY[0]]![cellXY[1]]!
         var pointIdxInCell = 0
         for i in 0..<cell.count {
-            if cell[i][0] == point[0] && cell[i][1] == point[1] {
+            if cell[i].xxx == point.xxx && cell[i].yyy == point.yyy {
                 pointIdxInCell = i
                 break
             }
@@ -59,26 +59,26 @@ class Grid {
         cells[cellXY[0]]![cellXY[1]]!.remove(at: pointIdxInCell)
     }
 
-    func rangePoints(_ bbox: [Double]) -> [[Double]] {
-        let tlCellXY = point2CellXY([bbox[0], bbox[1]])
-        let brCellXY = point2CellXY([bbox[2], bbox[3]])
-        var points = [[Double]]()
+    func rangePoints(_ bbox: [Double]) -> [Point] {
+        let tlCellXY = point2CellXY(Point(xxx: bbox[0], yyy: bbox[1]))
+        let brCellXY = point2CellXY(Point(xxx: bbox[2], yyy: bbox[3]))
+        var points = [Point]()
 
         for x in tlCellXY[0]..<brCellXY[0]+1 {
             for y in tlCellXY[1]..<brCellXY[1]+1 {
-                points = points + cellPoints(x, y)
+                points += cellPoints(x, y)
             }
         }
         return points
     }
 
-    func cellPoints(_ x: Int, _ y: Int) -> [[Double]] {
-        if cells[x] != nil {
-            if cells[x]![y] != nil {
-                return cells[x]![y]!
+    func cellPoints(_ xAbs: Int, _ yOrd: Int) -> [Point] {
+        if let xxx = cells[xAbs] {
+            if let yyy = xxx[yOrd] {
+                return yyy
             }
         }
-        return [[Double]]()
+        return [Point]()
     }
 
 }

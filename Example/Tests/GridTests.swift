@@ -13,25 +13,23 @@ import Nimble
 class GridSpecs: QuickSpec {
 
     override func spec() {
-        let points: [[Double]] = [
+        let points: [Point] = [
             // cell 0,0
-            [0, 0], [1, 1], [9, 5],
+            Point(xxx: 0, yyy: 0), Point(xxx: 1, yyy: 1), Point(xxx: 9, yyy: 5),
             // cell 0,1
-            [1, 11], [5, 15],
+            Point(xxx: 1, yyy: 11), Point(xxx: 5, yyy: 15),
             // cell 1,0
-            [11, 0], [11, 1], [19, 5],
+            Point(xxx: 11, yyy: 0), Point(xxx: 11, yyy: 1), Point(xxx: 19, yyy: 5),
             // cell 1,1
-            [10, 10], [11, 11]]
+            Point(xxx: 10, yyy: 10), Point(xxx: 11, yyy: 11)]
         let g: Grid = Grid(points, 10)
-        
+
         describe("Test of Cell Points") {
             var input = g.cellPoints(0, 0)
-            var output = [[0, 0], [1, 1], [9, 5]] as [[Double]]
-            
+            var output = [Point(xxx: 0, yyy: 0), Point(xxx: 1, yyy: 1), Point(xxx: 9, yyy: 5)]
             for r in input {
-                let rex = output.contains(where: {
-                    (i: [Double]) -> Bool in
-                    if (r[0] == i[0] && r[1] == i[1]) || (r[0] == i[1] && r[1] == i[0]) {
+                let rex = output.contains(where: { (idx: Point) -> Bool in
+                    if (r.xxx == idx.xxx && r.yyy == idx.yyy) || (r.xxx == idx.yyy && r.yyy == idx.xxx) {
                         return true
                     }
                     return false
@@ -39,13 +37,11 @@ class GridSpecs: QuickSpec {
                 it("should return true for point [0, 0]") {
                     expect(true) == rex
                 }
-                
             }
-            
+
             for r in output {
-                let rex = input.contains(where: {
-                    (i: [Double]) -> Bool in
-                    if (r[0] == i[0] && r[1] == i[1]) || (r[0] == i[1] && r[1] == i[0]) {
+                let rex = input.contains(where: { (idx: Point) -> Bool in
+                    if (r.xxx == idx.xxx && r.yyy == idx.yyy) || (r.xxx == idx.yyy && r.yyy == idx.xxx) {
                         return true
                     }
                     return false
@@ -53,16 +49,14 @@ class GridSpecs: QuickSpec {
                 it("should return true for point [0, 0]") {
                     expect(true) == rex
                 }
-               
             }
-            
+
             input = g.cellPoints(0, 1)
-            output = [[1, 11], [5, 15]] as [[Double]]
-            
+            output = [Point(xxx: 1, yyy: 11), Point(xxx: 5, yyy: 15)]
+
             for r in input {
-                let rex = output.contains(where: {
-                    (i: [Double]) -> Bool in
-                    if (r[0] == i[0] && r[1] == i[1]) || (r[0] == i[1] && r[1] == i[0]) {
+                let rex = output.contains(where: { (idx: Point) -> Bool in
+                    if (r.xxx == idx.xxx && r.yyy == idx.yyy) || (r.xxx == idx.yyy && r.yyy == idx.xxx) {
                         return true
                     }
                     return false
@@ -71,11 +65,10 @@ class GridSpecs: QuickSpec {
                     expect(true) == rex
                 }
             }
-            
+
             for r in output {
-                let rex = input.contains(where: {
-                    (i: [Double]) -> Bool in
-                    if (r[0] == i[0] && r[1] == i[1]) || (r[0] == i[1] && r[1] == i[0]) {
+                let rex = input.contains(where: { (idx: Point) -> Bool in
+                    if (r.xxx == idx.xxx && r.yyy == idx.yyy) || (r.xxx == idx.yyy && r.yyy == idx.xxx) {
                         return true
                     }
                     return false
@@ -84,14 +77,13 @@ class GridSpecs: QuickSpec {
                     expect(true) == rex
                 }
             }
-            
+
             input = g.cellPoints(1, 0)
-            output = [[11, 0], [11, 1], [19, 5]] as [[Double]]
-            
+            output = [Point(xxx: 11, yyy: 0), Point(xxx: 11, yyy: 1), Point(xxx: 19, yyy: 5)]
+
             for r in input {
-                let rex = output.contains(where: {
-                    (i: [Double]) -> Bool in
-                    if (r[0] == i[0] && r[1] == i[1]) || (r[0] == i[1] && r[1] == i[0]) {
+                let rex = output.contains(where: { (idx: Point) -> Bool in
+                    if (r.xxx == idx.xxx && r.yyy == idx.yyy) || (r.xxx == idx.yyy && r.yyy == idx.xxx) {
                         return true
                     }
                     return false
@@ -100,11 +92,10 @@ class GridSpecs: QuickSpec {
                     expect(true) == rex
                 }
             }
-            
+
             for r in output {
-                let rex = input.contains(where: {
-                    (i: [Double]) -> Bool in
-                    if (r[0] == i[0] && r[1] == i[1]) || (r[0] == i[1] && r[1] == i[0]) {
+                let rex = input.contains(where: { (idx: Point) -> Bool in
+                    if (r.xxx == idx.xxx && r.yyy == idx.yyy) || (r.xxx == idx.yyy && r.yyy == idx.xxx) {
                         return true
                     }
                     return false
@@ -113,14 +104,13 @@ class GridSpecs: QuickSpec {
                     expect(true) == rex
                 }
             }
-            
+
             input = g.cellPoints(1, 1)
-            output = [[10, 10], [11, 11]] as [[Double]]
-            
+            output = [Point(xxx: 10, yyy: 10), Point(xxx: 11, yyy: 11)]
+
             for r in input {
-                let rex = output.contains(where: {
-                    (i: [Double]) -> Bool in
-                    if (r[0] == i[0] && r[1] == i[1]) || (r[0] == i[1] && r[1] == i[0]) {
+                let rex = output.contains(where: { (idx: Point) -> Bool in
+                    if (r.xxx == idx.xxx && r.yyy == idx.yyy) || (r.xxx == idx.yyy && r.yyy == idx.xxx) {
                         return true
                     }
                     return false
@@ -129,11 +119,10 @@ class GridSpecs: QuickSpec {
                     expect(true) == rex
                 }
             }
-            
+
             for r in output {
-                let rex = input.contains(where: {
-                    (i: [Double]) -> Bool in
-                    if (r[0] == i[0] && r[1] == i[1]) || (r[0] == i[1] && r[1] == i[0]) {
+                let rex = input.contains(where: { (idx: Point) -> Bool in
+                    if (r.xxx == idx.xxx && r.yyy == idx.yyy) || (r.xxx == idx.yyy && r.yyy == idx.xxx) {
                         return true
                     }
                     return false
@@ -143,52 +132,51 @@ class GridSpecs: QuickSpec {
                 }
             }
         }
-        
+
         describe("Test Of Point to Cell XY") {
 
-            var r = g.point2CellXY([1, 1])
+            var r = g.point2CellXY(Point(xxx:1, yyy: 1))
             var i = [0, 0]
-            
+
             it("should return ".appending(i.description)) {
                 expect(r) == i
             }
-        
-            
-            r = g.point2CellXY([1, 11])
+
+            r = g.point2CellXY(Point(xxx:1, yyy: 11))
             i = [0, 1]
-            
+
             it("should return ".appending(i.description)) {
                 expect(r) == i
             }
-            
-            r = g.point2CellXY([11, 1])
+
+            r = g.point2CellXY(Point(xxx:11, yyy: 1))
             i = [1, 0]
-            
+
             it("should return ".appending(i.description)) {
                 expect(r) == i
             }
-            
-            r = g.point2CellXY([10, 10])
+
+            r = g.point2CellXY(Point(xxx:10, yyy: 10))
             i = [1, 1]
-            
+
             it("should return ".appending(i.description)) {
                 expect(r) == i
             }
-            
-            r = g.point2CellXY([11, 11])
+
+            r = g.point2CellXY(Point(xxx:11, yyy: 11))
             i = [1, 1]
-            
+
             it("should return ".appending(i.description)) {
                 expect(r) == i
             }
         }
-        
+
         describe("Test Of Range Of Points") {
-            
             for r in g.rangePoints([1, 0, 6, 16]) {
-                let rex = [[0, 0], [1, 1], [9, 5], [1, 11], [5, 15]].contains(where: {
-                    (i: [Double]) -> Bool in
-                    if (r[0] == i[0] && r[1] == i[1]) || (r[0] == i[1] && r[1] == i[0]) {
+                let testArray = [Point(xxx: 0, yyy: 0), Point(xxx: 1, yyy: 1), Point(xxx: 9, yyy: 5),
+                                 Point(xxx: 1, yyy: 11), Point(xxx: 5, yyy: 15)]
+                let rex = testArray.contains(where: { (idx: Point) -> Bool in
+                    if (r.xxx == idx.xxx && r.yyy == idx.yyy) || (r.xxx == idx.yyy && r.yyy == idx.xxx) {
                         return true
                     }
                     return false
@@ -197,22 +185,21 @@ class GridSpecs: QuickSpec {
                     expect(true) == rex
                 }
             }
-            
+
             for r in g.rangePoints([0, 0, 11, 11]) {
-                let rex = points.contains(where: {
-                    (i: [Double]) -> Bool in
-                    if (r[0] == i[0] && r[1] == i[1]) || (r[0] == i[1] && r[1] == i[0]) {
+                let rex = points.contains(where: { (idx: Point) -> Bool in
+                    if (r.xxx == idx.xxx && r.yyy == idx.yyy) || (r.xxx == idx.yyy && r.yyy == idx.xxx) {
                         return true
                     }
                     return false
                 })
-                
+
                 it("should return points from cells [0,0] and [1,1]") {
                     expect(true) == rex
                 }
             }
         }
-        
+
         describe("Test of Extend Bounding box") {
             var r = g.extendBbox([0, 0, 11, 11], 1)
             var i: [Double] = [-10, -10, 21, 21]
@@ -222,13 +209,12 @@ class GridSpecs: QuickSpec {
 
             r = g.extendBbox([0, 0, 11, 11], 2)
             i = [-20, -20, 31, 31]
-            
+
             it("should increase bBox to 2 cells") {
                 expect(r) == i
             }
 
         }
     }
-
 
 }

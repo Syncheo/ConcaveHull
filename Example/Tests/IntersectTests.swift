@@ -13,27 +13,32 @@ import MapKit
 
 class IntersectSpec: QuickSpec {
     override func spec() {
-        
+
         describe("Intersect Test") {
-            
+
             it("should return false for the parallel segments") {
-                expect(false) == Intersect([[0, 0], [0, 10]], [[10, 0], [10, 10]]).isIntersect
+                expect(Intersect([Point(xxx: 0, yyy: 0), Point(xxx:0, yyy: 10)],
+                    [Point(xxx: 10, yyy: 0), Point(xxx:10, yyy: 10)]).isIntersect) == false
             }
-            
+
             it("should return false for collinear segments") {
-                expect(false) == Intersect([[0.0, 0.0], [0.0, 10.0]], [[0.0, 11.0], [0, 20]]).isIntersect
+                expect(Intersect([Point(xxx: 0, yyy: 0), Point(xxx:0, yyy: 10)],
+                    [Point(xxx: 0, yyy: 11), Point(xxx:10, yyy: 20)]).isIntersect) == false
             }
-            
+
             it("should return false for intersecting lines but nonintersecting segments") {
-                expect(false) == Intersect([[0.0, 0.0], [0.0, 10.0]], [[-10.0, 11.0], [10, 11]]).isIntersect
+                expect(Intersect([Point(xxx: 0, yyy: 0), Point(xxx:0, yyy: 10)],
+                    [Point(xxx: -10, yyy: 11), Point(xxx:10, yyy: 11)]).isIntersect) == false
             }
-            
+
             it("should return true for intersecting segments") {
-                expect(true) == Intersect([[0.0, 0.0], [0.0, 10.0]], [[-10.0, 5.0], [10, 5]]).isIntersect
+                expect(Intersect([Point(xxx: 0, yyy: 0), Point(xxx:0, yyy: 10)],
+                    [Point(xxx: -10, yyy: 5), Point(xxx:10, yyy: 5)]).isIntersect) == true
             }
-            
+
             it("should return true for touching segments") {
-                expect(true) == Intersect([[0, 0], [0, 10]], [[-10, 10], [10, 10]]).isIntersect
+                expect(Intersect([Point(xxx: 0, yyy: 0), Point(xxx:0, yyy: 10)],
+                    [Point(xxx: -10, yyy: 10), Point(xxx:10, yyy: 10)]).isIntersect) == true
             }
         }
     }
