@@ -1,15 +1,18 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, "10.0"
 use_frameworks!
+
 target 'ConcaveHull_Tests' do
-  pod 'ConcaveHull', :path => '../'
   
-  pod 'Quick', '~> 1.0.0'
-  pod 'Nimble', '~> 5.1.1'
+  pod 'ConcaveHull', :path => '../'
+  pod 'Quick'
+  pod 'Nimble'
   pod 'SwiftLint'
   
   post_install do |installer|
       installer.pods_project.targets.each do |target|
           target.build_configurations.each do |config|
-              config.build_settings['SWIFT_VERSION'] = '3.0'
+              config.build_settings['SWIFT_VERSION'] = '4.0'
           end
       end
   end

@@ -1,3 +1,6 @@
+## 1.1.0
+Swift 4 compatibility, chance
+
 ## 1.0.0
 Add new function to create a polygon from the created hull and to check if a point is in the polygon
 

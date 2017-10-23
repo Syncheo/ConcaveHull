@@ -15,7 +15,7 @@
 		88218D8F1E9194F20054DC8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88218D8D1E9194F20054DC8F /* LaunchScreen.storyboard */; };
 		88218DB71E923B680054DC8F /* paris.json in Resources */ = {isa = PBXBuildFile; fileRef = 88218DB61E923B680054DC8F /* paris.json */; };
 		88218DBB1E92487F0054DC8F /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88218DBA1E92487F0054DC8F /* Station.swift */; };
-		885844F91E93862300B4E58A /* ConcaveHull.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885844F81E93862300B4E58A /* ConcaveHull.framework */; };
+		88EEE7911F9E116D008B6189 /* ConcaveHull.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88EEE7901F9E116C008B6189 /* ConcaveHull.framework */; };
 		88F655291E8AF7AA00B03A5B /* IntersectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F655261E8AF7AA00B03A5B /* IntersectTests.swift */; };
 		88F6552A1E8AF7AA00B03A5B /* HullTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F655271E8AF7AA00B03A5B /* HullTests.swift */; };
 		88F6552B1E8AF7AA00B03A5B /* GridTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F655281E8AF7AA00B03A5B /* GridTests.swift */; };
@@ -23,7 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		885844FC1E9386A400B4E58A /* Embed Frameworks */ = {
+		88EEE78F1F9E1097008B6189 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
@@ -48,10 +48,9 @@
 		88218D8B1E9194F20054DC8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88218D8E1E9194F20054DC8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88218D901E9194F20054DC8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		88218DB21E922C790054DC8F /* ConcaveHull.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ConcaveHull.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88218DB61E923B680054DC8F /* paris.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = paris.json; sourceTree = "<group>"; };
 		88218DBA1E92487F0054DC8F /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
-		885844F81E93862300B4E58A /* ConcaveHull.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ConcaveHull.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/ConcaveHull-glvqspzgnamzslabtcydumgfwaxb/Build/Products/Debug-iphonesimulator/ConcaveHull/ConcaveHull.framework"; sourceTree = "<group>"; };
+		88EEE7901F9E116C008B6189 /* ConcaveHull.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ConcaveHull.framework; path = ../ConcaveHull.framework; sourceTree = "<group>"; };
 		88F655261E8AF7AA00B03A5B /* IntersectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntersectTests.swift; sourceTree = "<group>"; };
 		88F655271E8AF7AA00B03A5B /* HullTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HullTests.swift; sourceTree = "<group>"; };
 		88F655281E8AF7AA00B03A5B /* GridTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridTests.swift; sourceTree = "<group>"; };
@@ -75,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				885844F91E93862300B4E58A /* ConcaveHull.framework in Frameworks */,
+				88EEE7911F9E116D008B6189 /* ConcaveHull.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,8 +168,7 @@
 		DE0750096031DF9622BF0020 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				885844F81E93862300B4E58A /* ConcaveHull.framework */,
-				88218DB21E922C790054DC8F /* ConcaveHull.framework */,
+				88EEE7901F9E116C008B6189 /* ConcaveHull.framework */,
 				C3F5B0B47BEA3C3B55CE482B /* Pods_ConcaveHull_Tests.framework */,
 			);
 			name = Frameworks;
@@ -207,7 +205,7 @@
 				88218D7B1E9194F10054DC8F /* Sources */,
 				88218D7C1E9194F10054DC8F /* Frameworks */,
 				88218D7D1E9194F10054DC8F /* Resources */,
-				885844FC1E9386A400B4E58A /* Embed Frameworks */,
+				88EEE78F1F9E1097008B6189 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -225,13 +223,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = 9VAH9L779R;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 					88218D7E1E9194F10054DC8F = {
@@ -288,9 +286,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ConcaveHull_Tests/Pods-ConcaveHull_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ConcaveHull/ConcaveHull.framework",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ConcaveHull.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -316,13 +321,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ConcaveHull_Tests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DC98DCC4317AD09A48A3FAAD /* [CP] Copy Pods Resources */ = {
@@ -394,7 +402,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -402,7 +412,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -431,7 +445,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -443,7 +457,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -451,7 +467,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -472,7 +492,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -484,7 +504,6 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				DEVELOPMENT_TEAM = 9VAH9L779R;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
@@ -496,7 +515,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -507,7 +527,6 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				DEVELOPMENT_TEAM = 9VAH9L779R;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
@@ -515,7 +534,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -529,7 +549,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"\"$(SRCROOT)/../../../../../../Library/Developer/Xcode/DerivedData/ConcaveHull-glvqspzgnamzslabtcydumgfwaxb/Build/Products/Debug-iphonesimulator/ConcaveHull/\"",
 				);
 				INFOPLIST_FILE = ConcaveHullExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
@@ -537,7 +556,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = fr.appProviders.ConcaveHullExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -551,14 +570,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"\"$(SRCROOT)/../../../../../../Library/Developer/Xcode/DerivedData/ConcaveHull-glvqspzgnamzslabtcydumgfwaxb/Build/Products/Debug-iphonesimulator/ConcaveHull/\"",
 				);
 				INFOPLIST_FILE = ConcaveHullExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.appProviders.ConcaveHullExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
