@@ -124,7 +124,7 @@ class HullTests: QuickSpec {
             }
 
             it([0, 0].description.appending(" shouldn't be in the polygon")) {
-                expect(hull.pointInPolygon(mapPoint: MKMapPointMake(0, 0))) == false
+                expect(hull.pointInPolygon(mapPoint: MKMapPoint.init(x: 0, y: 0))) == false
             }
         }
     }

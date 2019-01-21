@@ -8,7 +8,7 @@
 ## Usage
 
 	let points = [[162, 332], [182, 299], [141, 292], [158, 264], ... ];
-    let h = Hull(concavity: 50)
+	let h = Hull(concavity: 50)
 	let hull = h.hull(points, nil)
 
 ## Params

@@ -41,10 +41,10 @@ class Format {
     func fromXy(_ pointSet: [Point], _ format: [String]?) -> [Any] {
         if let format = format {
             return pointSet.map { (point: Point) -> [String: Double] in
-                var o: [String: Double] = [String: Double]()
-                o[format[0]] = point.xxx
-                o[format[1]] = point.yyy
-                return o
+                var origin: [String: Double] = [String: Double]()
+                origin[format[0]] = point.xxx
+                origin[format[1]] = point.yyy
+                return origin
             }
         } else {
             return pointSet.map { (point: Point) -> [Double] in

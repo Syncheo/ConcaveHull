@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		764733373AD2C1ED49568ACB /* Pods_ConcaveHull_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A40DA7AC58317CF7DFB4973 /* Pods_ConcaveHull_Tests.framework */; };
 		88218D821E9194F20054DC8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88218D811E9194F20054DC8F /* AppDelegate.swift */; };
 		88218D841E9194F20054DC8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88218D831E9194F20054DC8F /* ViewController.swift */; };
 		88218D871E9194F20054DC8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88218D851E9194F20054DC8F /* Main.storyboard */; };
@@ -19,7 +20,6 @@
 		88F655291E8AF7AA00B03A5B /* IntersectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F655261E8AF7AA00B03A5B /* IntersectTests.swift */; };
 		88F6552A1E8AF7AA00B03A5B /* HullTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F655271E8AF7AA00B03A5B /* HullTests.swift */; };
 		88F6552B1E8AF7AA00B03A5B /* GridTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F655281E8AF7AA00B03A5B /* GridTests.swift */; };
-		A73653F1632802F90D4090AA /* Pods_ConcaveHull_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F5B0B47BEA3C3B55CE482B /* Pods_ConcaveHull_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,9 +36,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1D4D66403F189C1FCCB25D2E /* Pods-ConcaveHull_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConcaveHull_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConcaveHull_Tests/Pods-ConcaveHull_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		48E117333680BE7CE04128EA /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* ConcaveHull_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConcaveHull_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A40DA7AC58317CF7DFB4973 /* Pods_ConcaveHull_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConcaveHull_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88218D791E9193610054DC8F /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		88218D7F1E9194F10054DC8F /* ConcaveHullExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConcaveHullExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88218D811E9194F20054DC8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,10 +56,8 @@
 		88F655261E8AF7AA00B03A5B /* IntersectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntersectTests.swift; sourceTree = "<group>"; };
 		88F655271E8AF7AA00B03A5B /* HullTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HullTests.swift; sourceTree = "<group>"; };
 		88F655281E8AF7AA00B03A5B /* GridTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridTests.swift; sourceTree = "<group>"; };
-		C19D20045C5ED4BE3B5B0902 /* Pods-ConcaveHull_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConcaveHull_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConcaveHull_Tests/Pods-ConcaveHull_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		C3F5B0B47BEA3C3B55CE482B /* Pods_ConcaveHull_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConcaveHull_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA30E1BA599D11AC7E3C4919 /* ConcaveHull.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ConcaveHull.podspec; path = ../ConcaveHull.podspec; sourceTree = "<group>"; };
-		D900B520BD29237A25A0F0F8 /* Pods-ConcaveHull_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConcaveHull_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConcaveHull_Tests/Pods-ConcaveHull_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		DDD5B982259ADD59DF21B319 /* Pods-ConcaveHull_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConcaveHull_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConcaveHull_Tests/Pods-ConcaveHull_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		F908CE052C4CB7C1D8FB959B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,7 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A73653F1632802F90D4090AA /* Pods_ConcaveHull_Tests.framework in Frameworks */,
+				764733373AD2C1ED49568ACB /* Pods_ConcaveHull_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +81,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19DCA2D70165FA5F554D564F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DDD5B982259ADD59DF21B319 /* Pods-ConcaveHull_Tests.debug.xcconfig */,
+				1D4D66403F189C1FCCB25D2E /* Pods-ConcaveHull_Tests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -88,8 +97,8 @@
 				607FACE81AFB9204008FA782 /* Tests */,
 				88218D801E9194F10054DC8F /* ConcaveHullExample */,
 				607FACD11AFB9204008FA782 /* Products */,
-				A97BC001F4F6B12B3C4EB55A /* Pods */,
 				DE0750096031DF9622BF0020 /* Frameworks */,
+				19DCA2D70165FA5F554D564F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -156,20 +165,11 @@
 			name = Files;
 			sourceTree = "<group>";
 		};
-		A97BC001F4F6B12B3C4EB55A /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D900B520BD29237A25A0F0F8 /* Pods-ConcaveHull_Tests.debug.xcconfig */,
-				C19D20045C5ED4BE3B5B0902 /* Pods-ConcaveHull_Tests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		DE0750096031DF9622BF0020 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				88EEE7901F9E116C008B6189 /* ConcaveHull.framework */,
-				C3F5B0B47BEA3C3B55CE482B /* Pods_ConcaveHull_Tests.framework */,
+				6A40DA7AC58317CF7DFB4973 /* Pods_ConcaveHull_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -181,13 +181,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "ConcaveHull_Tests" */;
 			buildPhases = (
-				D51F1345B0F663CC83980091 /* [CP] Check Pods Manifest.lock */,
+				65455B83F0D25D7ACADC775A /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				6A2E57F90484623043783D12 /* [CP] Embed Pods Frameworks */,
-				DC98DCC4317AD09A48A3FAAD /* [CP] Copy Pods Resources */,
 				883431411EB365CA00EA6F26 /* ShellScript */,
+				C4127A707D7E53A3AEE03249 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -223,13 +222,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = 9VAH9L779R;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1010;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 					88218D7E1E9194F10054DC8F = {
@@ -280,26 +279,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6A2E57F90484623043783D12 /* [CP] Embed Pods Frameworks */ = {
+		65455B83F0D25D7ACADC775A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ConcaveHull_Tests/Pods-ConcaveHull_Tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ConcaveHull/ConcaveHull.framework",
-				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
-				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+			inputFileListPaths = (
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ConcaveHull.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+				"$(DERIVED_FILE_DIR)/Pods-ConcaveHull_Tests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ConcaveHull_Tests/Pods-ConcaveHull_Tests-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		883431411EB365CA00EA6F26 /* ShellScript */ = {
@@ -315,37 +314,30 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
 		};
-		D51F1345B0F663CC83980091 /* [CP] Check Pods Manifest.lock */ = {
+		C4127A707D7E53A3AEE03249 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
+			inputFileListPaths = (
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ConcaveHull_Tests/Pods-ConcaveHull_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ConcaveHull/ConcaveHull.framework",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ConcaveHull_Tests-checkManifestLockResult.txt",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ConcaveHull.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DC98DCC4317AD09A48A3FAAD /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ConcaveHull_Tests/Pods-ConcaveHull_Tests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ConcaveHull_Tests/Pods-ConcaveHull_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -406,6 +398,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -413,6 +406,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -461,6 +455,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -468,6 +463,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -499,7 +495,7 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D900B520BD29237A25A0F0F8 /* Pods-ConcaveHull_Tests.debug.xcconfig */;
+			baseConfigurationReference = DDD5B982259ADD59DF21B319 /* Pods-ConcaveHull_Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				DEVELOPMENT_TEAM = 9VAH9L779R;
@@ -515,14 +511,13 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C19D20045C5ED4BE3B5B0902 /* Pods-ConcaveHull_Tests.release.xcconfig */;
+			baseConfigurationReference = 1D4D66403F189C1FCCB25D2E /* Pods-ConcaveHull_Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				DEVELOPMENT_TEAM = 9VAH9L779R;
@@ -534,8 +529,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

@@ -53,16 +53,16 @@ class HullHelper {
 
         cellSize = ceil(occupiedArea.xxx * occupiedArea.yyy / Double(points.count))
 
-        let g = Grid(innerPoints, cellSize)
+        let grid = Grid(innerPoints, cellSize)
 
-        let concave: [Point] = concaveFunc(&convex, pow(concavity, 2), maxSearchArea, g, &skipList)
+        let concave: [Point] = concaveFunc(&convex, pow(concavity, 2), maxSearchArea, grid, &skipList)
 
         return Format().fromXy(concave, format)
     }
 
     func filterDuplicates(_ pointSet: [Point]) -> [Point] {
-        let s = sortByX(pointSet)
-        return s.filter { (point: Point) -> Bool in
+        let sortedSet = sortByX(pointSet)
+        return sortedSet.filter { (point: Point) -> Bool in
             let index = pointSet.index(where: {(idx: Point) -> Bool in
                 return idx.xxx == point.xxx && idx.yyy == point.yyy
             })
@@ -102,8 +102,8 @@ class HullHelper {
     }
 
     func intersectFunc(_ segment: [Point], _ pointSet: [Point]) -> Bool {
-        for i in 0..<pointSet.count - 1 {
-            let seg = [pointSet[i], pointSet[i + 1]]
+        for idx in 0..<pointSet.count - 1 {
+            let seg = [pointSet[idx], pointSet[idx + 1]]
             if segment[0].xxx == seg[0].xxx && segment[0].yyy == seg[0].yyy ||
                 segment[0].xxx == seg[1].xxx && segment[0].yyy == seg[1].yyy {
                 continue
@@ -120,18 +120,18 @@ class HullHelper {
         var minY = Double.infinity
         var maxX = -Double.infinity
         var maxY = -Double.infinity
-        for i in 0..<pointSet.reversed().count {
-            if pointSet[i].xxx < minX {
-                minX = pointSet[i].xxx
+        for idx in 0..<pointSet.reversed().count {
+            if pointSet[idx].xxx < minX {
+                minX = pointSet[idx].xxx
             }
-            if pointSet[i].yyy < minY {
-                minY = pointSet[i].yyy
+            if pointSet[idx].yyy < minY {
+                minY = pointSet[idx].yyy
             }
-            if pointSet[i].xxx > maxX {
-                maxX = pointSet[i].xxx
+            if pointSet[idx].xxx > maxX {
+                maxX = pointSet[idx].xxx
             }
-            if pointSet[i].yyy > maxY {
-                maxY = pointSet[i].yyy
+            if pointSet[idx].yyy > maxY {
+                maxY = pointSet[idx].yyy
             }
         }
         return Point(xxx: maxX - minX, yyy: maxY - minY)
@@ -145,7 +145,7 @@ class HullHelper {
     }
 
     func midPointFunc(_ edge: [Point], _ innerPoints: [Point], _ convex: [Point]) -> Point? {
-        var point: Point? = nil
+        var point: Point?
         var angle1Cos = maxConcaveAngleCos
         var angle2Cos = maxConcaveAngleCos
         var a1Cos: Double = 0
@@ -177,8 +177,8 @@ class HullHelper {
         var bBoxHeight: Double = 0
         var midPointInserted: Bool = false
 
-        for i in 0..<convex.count - 1 {
-            edge = [convex[i], convex[i+1]]
+        for idx in 0..<convex.count - 1 {
+            edge = [convex[idx], convex[idx+1]]
             keyInSkipList = edge[0].description().appending(", ").appending(edge[1].description())
 
             scaleFactor = 0
@@ -200,7 +200,7 @@ class HullHelper {
                 edgeSkipList[keyInSkipList] = true
             }
             if let midPoint = midPoint {
-                convex.insert(midPoint, at: i + 1)
+                convex.insert(midPoint, at: idx + 1)
                 grid.removePoint(midPoint)
                 midPointInserted = true
             }

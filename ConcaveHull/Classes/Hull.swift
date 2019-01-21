@@ -213,7 +213,7 @@ public class Hull {
      - returns: A Boolean value, true if CLLocationCoordinate2D is in polygon, false if not
      */
     public func coordInPolygon(coord: CLLocationCoordinate2D) -> Bool {
-        let mapPoint: MKMapPoint = MKMapPointForCoordinate(coord)
+        let mapPoint: MKMapPoint = MKMapPoint(coord)
         return self.pointInPolygon(mapPoint: mapPoint)
     }
 

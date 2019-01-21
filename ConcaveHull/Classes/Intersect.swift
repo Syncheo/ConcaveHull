@@ -24,7 +24,7 @@ class Intersect {
     }
 
     private func ccw(_ seg1: Point, _ seg2: Point, _ seg3: Point) -> Bool {
-        let cw = ((seg3.yyy - seg1.yyy) * (seg2.xxx - seg1.xxx)) - ((seg2.yyy - seg1.yyy) * (seg3.xxx - seg1.xxx))
-        return cw > 0 ? true : cw < 0 ? false : true
+        let ccw = ((seg3.yyy - seg1.yyy) * (seg2.xxx - seg1.xxx)) - ((seg2.yyy - seg1.yyy) * (seg3.xxx - seg1.xxx))
+        return ccw > 0 ? true : ccw < 0 ? false : true
     }
 }

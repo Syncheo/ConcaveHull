@@ -19,22 +19,22 @@ class Grid {
         self.cellSize = cellSize
         for point in points {
             let cellXY = point2CellXY(point)
-            let x = cellXY[0]
-            let y = cellXY[1]
-            if cells[x] == nil {
-                cells[x] = [Int: [Point]]()
+            let xxx = cellXY[0]
+            let yyy = cellXY[1]
+            if cells[xxx] == nil {
+                cells[xxx] = [Int: [Point]]()
             }
-            if cells[x]![y] == nil {
-                cells[x]![y] = [Point]()
+            if cells[xxx]![yyy] == nil {
+                cells[xxx]![yyy] = [Point]()
             }
-            cells[x]![y]!.append(point)
+            cells[xxx]![yyy]!.append(point)
         }
     }
 
     func point2CellXY(_ point: Point) -> [Int] {
-        let x = Int(point.xxx / self.cellSize)
-        let y = Int(point.yyy / self.cellSize)
-        return [x, y]
+        let xxx = Int(point.xxx / self.cellSize)
+        let yyy = Int(point.yyy / self.cellSize)
+        return [xxx, yyy]
     }
 
     func extendBbox(_ bbox: [Double], _ scaleFactor: Double) -> [Double] {
@@ -50,9 +50,9 @@ class Grid {
         let cellXY = point2CellXY(point)
         var cell = cells[cellXY[0]]![cellXY[1]]!
         var pointIdxInCell = 0
-        for i in 0..<cell.count {
-            if cell[i].xxx == point.xxx && cell[i].yyy == point.yyy {
-                pointIdxInCell = i
+        for idx in 0..<cell.count {
+            if cell[idx].xxx == point.xxx && cell[idx].yyy == point.yyy {
+                pointIdxInCell = idx
                 break
             }
         }
@@ -64,9 +64,9 @@ class Grid {
         let brCellXY = point2CellXY(Point(xxx: bbox[2], yyy: bbox[3]))
         var points = [Point]()
 
-        for x in tlCellXY[0]..<brCellXY[0]+1 {
-            for y in tlCellXY[1]..<brCellXY[1]+1 {
-                points += cellPoints(x, y)
+        for xxx in tlCellXY[0]..<brCellXY[0]+1 {
+            for yyy in tlCellXY[1]..<brCellXY[1]+1 {
+                points += cellPoints(xxx, yyy)
             }
         }
         return points

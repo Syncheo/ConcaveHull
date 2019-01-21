@@ -27,11 +27,11 @@ class Convex {
 
     private func upperTangent(_ pointSet: [Point]) -> [Point] {
         var lower = [Point]()
-        for p in pointSet {
-            while lower.count >= 2 && (cross(lower[lower.count - 2], lower[lower.count - 1], p) <= 0) {
+        for point in pointSet {
+            while lower.count >= 2 && (cross(lower[lower.count - 2], lower[lower.count - 1], point) <= 0) {
                 _ = lower.popLast()
             }
-            lower.append(p)
+            lower.append(point)
         }
         _ = lower.popLast()
         return lower
@@ -40,11 +40,11 @@ class Convex {
     private func lowerTangent(_ pointSet: [Point]) -> [Point] {
         let reversed = pointSet.reversed()
         var upper = [Point]()
-        for p in reversed {
-            while upper.count >= 2 && (cross(upper[upper.count - 2], upper[upper.count - 1], p) <= 0) {
+        for point in reversed {
+            while upper.count >= 2 && (cross(upper[upper.count - 2], upper[upper.count - 1], point) <= 0) {
                 _ = upper.popLast()
             }
-            upper.append(p)
+            upper.append(point)
         }
         _ = upper.popLast()
         return upper

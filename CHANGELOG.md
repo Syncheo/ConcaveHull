@@ -1,3 +1,6 @@
+## 1.2.0
+Swift 4.2 compatibility
+
 ## 1.1.0
 Swift 4 compatibility, chance
 
