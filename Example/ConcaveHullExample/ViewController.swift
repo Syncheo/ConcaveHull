@@ -140,7 +140,7 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
         }
         var points: [MKMapPoint] = [MKMapPoint].init()
         for anno in annotations {
-            points.append(MKMapPointForCoordinate(anno.coordinate))
+            points.append(MKMapPoint(anno.coordinate))
         }
 
         return MKPolygon.init(points: points, count: points.count).boundingMapRect

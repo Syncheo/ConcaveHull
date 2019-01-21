@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ConcaveHull'
-  s.version          = '1.1.0'
+  s.version          = '1.3.0'
   s.summary          = 'A Swift Library that builds concave or convexe hull by set of points'
 
 # This description is used to generate tags and improve search results.
@@ -22,7 +22,6 @@ Concave hull is a simple library that generate the hull of a set of points, the 
 be of any format, the concavity of the hull is defined by a parameter if the function. 
 To create the Hull, just call Hull().hull(pointSet, Concavity, format or nil)
                        DESC
-
   s.homepage         = 'https://github.com/SanyM/ConcaveHull'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
