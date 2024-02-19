@@ -130,13 +130,13 @@ public class Hull {
                 let points: [MKMapPoint] = (hull as? [[String: Int]])!.map { (point: [String: Int]) -> MKMapPoint in
                     return MKMapPoint(x: Double(point["x"]!), y: Double(point["y"]!))
                 }
-                polygon = MKPolygon(points: UnsafePointer(points), count: points.count)
+                polygon = MKPolygon(points: points, count: points.count)
             }
             if hull is [[String: Double]] {
                 let points = (hull as? [[String: Double]])!.map { (point: [String: Double]) -> MKMapPoint in
                     return MKMapPoint(x: point["x"]!, y: point["y"]!)
                 }
-                polygon = MKPolygon(points: UnsafePointer(points), count: points.count)
+                polygon = MKPolygon(points: points, count: points.count)
             }
 
             return polygon
@@ -151,7 +151,7 @@ public class Hull {
             }
             return MKMapPoint()
         }
-        polygon = MKPolygon(points: UnsafePointer(points), count: points.count)
+        polygon = MKPolygon(points: points, count: points.count)
 
         return polygon
     }
@@ -175,13 +175,13 @@ public class Hull {
             let coords = (hull as? [[String: Int]])!.map { (point: [String: Int]) -> CLLocationCoordinate2D in
                 return CLLocationCoordinate2D(latitude: Double(point[latFormat]!), longitude: Double(point[lngFormat]!))
             }
-            polygon = MKPolygon(coordinates: UnsafePointer(coords), count: coords.count)
+            polygon = MKPolygon(coordinates: coords, count: coords.count)
         }
         if hull is [[String: Double]] {
             let coords = (hull as? [[String: Double]])!.map { (point: [String: Double]) -> CLLocationCoordinate2D in
                 return CLLocationCoordinate2D(latitude: point[latFormat]!, longitude: point[lngFormat]!)
             }
-            polygon = MKPolygon(coordinates: UnsafePointer(coords), count: coords.count)
+            polygon = MKPolygon(coordinates: coords, count: coords.count)
         }
 
         return polygon
@@ -193,7 +193,7 @@ public class Hull {
      - returns: An MKPolygon for direct reuse and set it in the class for future use
      */
     public func getPolygonWithCoordinates(_ coordinates: [CLLocationCoordinate2D]) -> MKPolygon {
-        polygon = MKPolygon(coordinates: UnsafePointer(coordinates), count: coordinates.count)
+        polygon = MKPolygon(coordinates: coordinates, count: coordinates.count)
         return polygon
     }
 
@@ -203,7 +203,7 @@ public class Hull {
      - returns: An MKPolygon for direct reuse and set it in the class for future use
      */
     public func getPolygonWithMapPoints(_ mapPoints: [MKMapPoint]) -> MKPolygon {
-        polygon = MKPolygon(points: UnsafePointer(mapPoints), count: mapPoints.count)
+        polygon = MKPolygon(points: mapPoints, count: mapPoints.count)
         return polygon
     }
 

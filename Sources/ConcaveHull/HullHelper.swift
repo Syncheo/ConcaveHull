@@ -37,7 +37,7 @@ class HullHelper {
         convex = Convex(points).convex
 
         innerPoints = points.filter { (point: Point) -> Bool in
-            let idx = convex.index(where: { (idx: Point) -> Bool in
+            let idx = convex.firstIndex(where: { (idx: Point) -> Bool in
                 return idx.xxx == point.xxx && idx.yyy == point.yyy
             })
             return idx == nil
@@ -63,7 +63,7 @@ class HullHelper {
     func filterDuplicates(_ pointSet: [Point]) -> [Point] {
         let sortedSet = sortByX(pointSet)
         return sortedSet.filter { (point: Point) -> Bool in
-            let index = pointSet.index(where: {(idx: Point) -> Bool in
+            let index = pointSet.firstIndex(where: {(idx: Point) -> Bool in
                 return idx.xxx == point.xxx && idx.yyy == point.yyy
             })
             if index == 0 {
