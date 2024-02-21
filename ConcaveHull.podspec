@@ -22,11 +22,11 @@ Concave hull is a simple library that generate the hull of a set of points, the 
 be of any format, the concavity of the hull is defined by a parameter if the function. 
 To create the Hull, just call Hull().hull(pointSet, Concavity, format or nil)
                        DESC
-  s.homepage         = 'https://github.com/SanyM/ConcaveHull'
+  s.homepage         = 'https://github.com/Syncheo/ConcaveHull'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'SanyM' => 'smaamari@gmail.com' }
-  s.source           = { :git => 'https://github.com/SanyM/ConcaveHull.git', :tag => s.version.to_s }
+  s.author           = { 'Syncheo' => 'smaamari@syncheo.tech' }
+  s.source           = { :git => 'https://github.com/Syncheo/ConcaveHull.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
