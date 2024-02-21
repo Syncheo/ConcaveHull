@@ -1,3 +1,14 @@
+## 1.4.1
+Add "Determining an appropriate concavity parameter value..." to README
+
+## 1.4.0
+Add Package.swift and change the file structure to the usual SPM structure.
+Remove now unnecessary UnsafePointer
+Replace deprecated .index with .firstIndex 
+
+## 1.3.0
+Modified example
+
 ## 1.2.0
 Swift 4.2 compatibility
 

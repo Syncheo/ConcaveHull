@@ -48,7 +48,7 @@ class Grid {
 
     func removePoint(_ point: Point) {
         let cellXY = point2CellXY(point)
-        var cell = cells[cellXY[0]]![cellXY[1]]!
+        let cell = cells[cellXY[0]]![cellXY[1]]!
         var pointIdxInCell = 0
         for idx in 0..<cell.count {
             if cell[idx].xxx == point.xxx && cell[idx].yyy == point.yyy {

@@ -19,6 +19,13 @@
 * 2nd param - concavity. `1` - thin shape. `Infinity` - convex hull. By default `20`;
 * 3rd param - the format of the array of coordinates For example: `["lng", "lat"]` if you have `["lng": x, "lat": y]` points. If your are using [[Int]] or [[Double]], the value can be nil
 
+### Determining an appropriate concavity parameter value
+
+Concavity determines the hull's maximum edge length.
+
+- Calculate the diameter of your dataset.
+- Start experimenting with: `concavity = diameter / 5`.
+
 ## How it works
 
 This step by step guide was taken as the original code from <a href="https://github.com/AndriiHeonia/hull/blob/master/README.md">https://github.com/AndriiHeonia/hull</a>
